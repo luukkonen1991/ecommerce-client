@@ -1,7 +1,7 @@
 import React from "react";
 
-import CategoryList from "../CategoryList/CategoryList";
-import FrontPageTeaser from "../FrontPageTeaser/FrontPageTeaser";
+// import CategoryList from "../CategoryList/CategoryList";
+import FrontPageTeaser from "../../components/FrontPageTeaser/FrontPageTeaser";
 
 import "./Home.scss";
 
