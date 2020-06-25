@@ -1,0 +1,33 @@
+.teaser-container {
+  width: 60%;
+  height: 500px;
+  border: solid;
+  padding: 20px;
+  background-color: rgb(189, 170, 122);
+  background-image: url(fashion.jpg);
+  position: relative;
+
+  .category-container {
+    width: 60%;
+    border: solid white;
+    padding: 10px;
+    position: absolute;
+    margin: 0 auto;
+    bottom: 0px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  .teaser-text-container {
+    text-align: center;
+    border: solid white;
+    margin: 0 auto;
+    width: 60%;
+    padding: 10px;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
