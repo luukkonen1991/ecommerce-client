@@ -1,9 +1,14 @@
-import React from 'react';
+import React from "react";
+
+import CategoryList from "../CategoryList/CategoryList";
+import FrontPageTeaser from "../FrontPageTeaser/FrontPageTeaser";
+
+import "./Home.scss";
 
 const Home = () => {
   return (
-    <div>
-      <h1>DIS IS HOME CONTAINER</h1>
+    <div className="homepage-container">
+      <FrontPageTeaser />
     </div>
   );
 };
