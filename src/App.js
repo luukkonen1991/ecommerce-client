@@ -1,15 +1,18 @@
-import React from "react";
 
-import Home from "./containers/Home/Home";
+import React from 'react';
 
-import "./App.css";
+import './App.css';
+import Layout from './hoc/Layout/Layout';
+import Home from './containers/Home/Home';
 
-function App() {
+
+const App = props => {
   return (
-    <div className="App">
+    <Layout>
       <Home />
-    </div>
+    </Layout>
+
   );
-}
+};
 
 export default App;
