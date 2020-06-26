@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 
 import classes from './ContactForm.module.scss';
 import FormInput from '../../components/FormInput/FormInput';
+import Button from '../../ui-assets/Button/Button';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [msg, setMsg] = useState('');
-
+  const [message, setMessage] = useState('');
+  console.log(name, email, message);
   const submitHandler = () => {
-    console.log('handler');
+    console.log(name, email, message);
   };
 
   return (
@@ -31,12 +32,19 @@ const ContactForm = () => {
           label="email"
         />
         <FormInput
-          type="msg"
-          name="msg"
-          value={msg}
-          onChange={event => setMsg(event.target.value)}
-          label="msg"
+          type="message"
+          name="message"
+          value={message}
+          onChange={event => setMessage(event.target.value)}
+          label="message"
         />
+        <div className={classes.btnClass}>
+          <Button
+            type="submit"
+            align="Align-Center"
+          >submit
+        </Button>
+        </div>
       </form>
     </div>
   );
