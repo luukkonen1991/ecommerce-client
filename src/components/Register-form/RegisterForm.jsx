@@ -1,23 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
 import FormInput from "../FormInput/FormInput";
 import FormButton from "../FormButton/FormButton";
 
-import "./Sign-in-form.scss";
+import "./RegisterForm.scss";
 
-export default class SignInForm extends Component {
+export default class RegisterForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: "",
       password: "",
+      name: "",
     };
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.setState({ email: "", password: "" });
+    this.setState({ email: "", password: "", name: "" });
   };
 
   handleChange = (e) => {
@@ -28,9 +30,17 @@ export default class SignInForm extends Component {
   render() {
     return (
       <div className="form-container">
-        <h2 className="title">I already have an account</h2>
-        <span>Sign in with your email and password</span>
+        <h2 className="title">Don't have an account yet?</h2>
+        <span>Register below</span>
         <form onSubmit={this.handleSubmit}>
+          <FormInput
+            type="text"
+            name="name"
+            value={this.state.name}
+            handleChange={this.handleChange}
+            required
+            label="name"
+          ></FormInput>
           <FormInput
             type="email"
             name="email"
@@ -48,16 +58,16 @@ export default class SignInForm extends Component {
             label="password"
           ></FormInput>
 
-          <FormButton type="submit" label="submit">
-            Sign in
+          <FormButton type="submit" label="register">
+            Register
           </FormButton>
-          <Link to="/register">
+          <Link to="/signin">
             <FormButton
               type="button"
               onClick={this.props.handleFormChange}
               label="switch"
             >
-              New user? Register here!
+              Back to login page
             </FormButton>
           </Link>
         </form>
