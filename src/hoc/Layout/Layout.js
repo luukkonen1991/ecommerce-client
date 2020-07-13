@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 
-const Layout = props => {
+import "./Layout.module.scss";
+
+const Layout = (props) => {
   return (
     <React.Fragment>
       <Toolbar />
-      <main>
-        {props.children}
-      </main>
+      <main>{props.children}</main>
     </React.Fragment>
   );
 };
