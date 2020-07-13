@@ -6,7 +6,7 @@ import Layout from "./hoc/Layout/Layout";
 import Home from "./containers/Home/Home";
 import SignInAndSignUp from "./containers/SignInAndSignUp/SignInAndSignUp";
 import ContactForm from "./containers/ContactForm/ContactForm";
-import SignInForm from "./components/Sign-in-form/Sign-in-form";
+import ShopPage from "./containers/Shop/ShopPage";
 
 let routes = (
   <Switch>
@@ -14,6 +14,7 @@ let routes = (
     <Route path="/signin" component={SignInAndSignUp} />
     <Route path="/register" component={SignInAndSignUp} />
     <Route path="/contact" component={ContactForm} />
+    <Route path="/shop" component={ShopPage} />
     <Redirect to="/" />
   </Switch>
 );

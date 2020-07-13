@@ -1,0 +1,24 @@
+.left-teaser-container {
+  width: 50%;
+  height: 100%;
+  background-color: #c1c1c1;
+  z-index: 100;
+  position: relative;
+
+  .content {
+    left: 20%;
+    top: 40%;
+    width: 50%;
+    position: absolute;
+
+    .headertext {
+      font-size: 3.5rem;
+      letter-spacing: 0.2rem;
+    }
+
+    .subtext {
+      font-size: 1.4rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+}
