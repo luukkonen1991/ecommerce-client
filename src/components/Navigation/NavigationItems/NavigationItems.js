@@ -1,6 +1,8 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
+
+import CartIcon from "../../CartIcon/CartIcon";
+import CartDropdown from "../../CartDropdown/CartDropdown";
 
 import classes from "./NavigationItems.module.scss";
 
@@ -14,6 +16,7 @@ const NavigationItems = () => {
       <Link to="/signin">
         <li>Sign in</li>
       </Link>
+      <CartIcon />
     </ul>
   );
 };
