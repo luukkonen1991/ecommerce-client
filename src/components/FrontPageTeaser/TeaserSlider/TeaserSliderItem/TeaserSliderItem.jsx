@@ -15,16 +15,16 @@ const TeaserSliderItem = (props) => {
   const { count, direction } = props;
 
   useEffect(() => {
-    console.log('props', count);
+    console.log('propsCount', count);
   }, [count]);
 
   return (
     <div className="item-promo" key={props.count}>
-      {direction === 'right' ? <Slide right duration={500}><div
+      {direction === 'right' ? <Slide right duration={300}><div
         className="background-image"
         style={{ backgroundImage: `url(${imgArr[count]})` }}
       ></div>
-      </Slide> : <Slide left duration={500}><div
+      </Slide> : <Slide left duration={300}><div
         className="background-image"
         style={{ backgroundImage: `url(${imgArr[count]})` }}
       ></div>
