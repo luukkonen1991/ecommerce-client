@@ -5,31 +5,26 @@ import TeaserSliderItem from './TeaserSliderItem/TeaserSliderItem';
 
 const TeaserSlider = () => {
   const [count, setCount] = useState(0);
-  const [slideDirection, setSlideDirection] = useState(null);
   console.log(count);
 
 
   const incrementHandler = () => {
     setCount(prevCount => prevCount + 1);
-    setSlideDirection('right');
     if (count >= 3) {
       setCount(0);
-      setSlideDirection('right');
     }
   };
   const decrementHandler = () => {
     setCount(prevCount => prevCount - 1);
-    setSlideDirection('left');
     if (count <= 0) {
       setCount(3);
-      setSlideDirection('left');
     }
   };
 
   return (
     <div className="teaser-slider">
       <div className="slide">
-        <TeaserSliderItem count={count} direction={slideDirection} />
+        <TeaserSliderItem count={count} />
       </div>
       <button id="goLeft" className="moveleft" onClick={decrementHandler}>
         LEFT
