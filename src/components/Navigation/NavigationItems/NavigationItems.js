@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import CartIcon from "../../CartIcon/CartIcon";
-import CartDropdown from "../../CartDropdown/CartDropdown";
+import CartIcon from "../Toolbar/CartIcon/CartIcon";
+import CartDropdown from "../Toolbar/CartIcon/CartDropdown/CartDropdown";
 
 import classes from "./NavigationItems.module.scss";
 

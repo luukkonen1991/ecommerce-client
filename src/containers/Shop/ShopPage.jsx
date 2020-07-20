@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fetchAllProducts } from "../../service/Request/Request";
+import { fetchAllProducts } from "../../services/ProductService";
 import Product from "../../components/Product/Product";
 
 import "./ShopPage.scss";

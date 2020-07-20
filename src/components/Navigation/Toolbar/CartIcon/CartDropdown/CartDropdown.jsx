@@ -1,6 +1,6 @@
 import React from "react";
 
-import FormButton from "../FormButton/FormButton";
+import FormButton from "../../../../../ui-assets/Form/FormButton/FormButton";
 
 import "./CartDropdown.scss";
 
