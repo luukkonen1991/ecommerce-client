@@ -30,7 +30,7 @@ export const authSignIn = (email, password) => {
       password: password
     };
     console.log(authData);
-    axios.post('http://localhost:5000/api/v1/auth/login', authData)
+    axios.post('/api/v1/auth/login', authData)
       .then(response => {
         console.log(response);
         dispatch(authSuccess(response.data.token));
