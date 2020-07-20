@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
 
-import FormInput from "../../ui-assets/Form/FormInput/FormInput";
-import FormButton from "../../ui-assets/Form/FormButton/FormButton";
-import * as actions from '../../store/actions/index';
+import FormInput from "../../../ui-assets/Form/FormInput/FormInput";
+import FormButton from "../../../ui-assets/Form/FormButton/FormButton";
 
-import "./SignIn.scss";
+import "./Register.scss";
 
-class SignIn extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
     };
@@ -20,7 +20,7 @@ class SignIn extends Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    this.props.onAuth(this.state.email, this.state.password);
+    this.setState({ email: "", password: "", name: "" });
   };
 
   onChangeHandler = (e) => {
@@ -31,9 +31,25 @@ class SignIn extends Component {
   render() {
     return (
       <div className="form-container">
-        <h2 className="title">I already have an account</h2>
-        <span>Sign in with your email and password</span>
+        <h2 className="title">Don't have an account yet?</h2>
+        <span>Register below</span>
         <form onSubmit={this.submitHandler}>
+          <FormInput
+            type="text"
+            name="firstName"
+            value={this.state.firstName}
+            handleChange={this.onChangeHandler}
+            required
+            label="first name"
+          ></FormInput>
+          <FormInput
+            type="text"
+            name="lastName"
+            value={this.state.lastName}
+            handleChange={this.onChangeHandler}
+            required
+            label="last name"
+          ></FormInput>
           <FormInput
             type="email"
             name="email"
@@ -51,16 +67,16 @@ class SignIn extends Component {
             label="password"
           ></FormInput>
 
-          <FormButton type="submit" label="submit">
-            Sign in
+          <FormButton type="submit" label="register">
+            Register
           </FormButton>
-          <Link to="/register">
+          <Link to="/signin">
             <FormButton
               type="button"
               onClick={this.props.handleFormChange}
               label="switch"
             >
-              New user? Register here!
+              Back to login page
             </FormButton>
           </Link>
         </form>
@@ -69,10 +85,4 @@ class SignIn extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onAuth: (email, password) => dispatch(actions.auth(email, password))
-  };
-};
-
-export default connect(null, mapDispatchToProps)(SignIn);
+export default Register;
