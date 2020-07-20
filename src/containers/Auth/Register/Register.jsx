@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 import FormInput from "../../../ui-assets/Form/FormInput/FormInput";
 import FormButton from "../../../ui-assets/Form/FormButton/FormButton";
+import * as actions from '../../../store/actions/index';
 
 import "./Register.scss";
 
@@ -20,7 +22,7 @@ class Register extends Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    this.setState({ email: "", password: "", name: "" });
+    this.props.onAuthRegister(this.state.firstName, this.state.lastName, this.state.email, this.state.password);
   };
 
   onChangeHandler = (e) => {
@@ -85,4 +87,10 @@ class Register extends Component {
   }
 }
 
-export default Register;
+const mapDispatchToProps = dispatch => {
+  return {
+    onAuthRegister: (firstName, lastName, email, password) => dispatch(actions.authRegister(firstName, lastName, email, password))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Register);

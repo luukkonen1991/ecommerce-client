@@ -1,3 +1,4 @@
 export {
-  authSignIn
+  authSignIn,
+  authRegister
 } from './auth'
