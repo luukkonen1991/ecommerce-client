@@ -20,7 +20,7 @@ class SignIn extends Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    this.props.onAuth(this.state.email, this.state.password);
+    this.props.onAuthSignIn(this.state.email, this.state.password);
   };
 
   onChangeHandler = (e) => {
@@ -71,7 +71,7 @@ class SignIn extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAuth: (email, password) => dispatch(actions.auth(email, password))
+    onAuthSignIn: (email, password) => dispatch(actions.authSignIn(email, password))
   };
 };
 

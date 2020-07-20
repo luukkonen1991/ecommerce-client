@@ -22,7 +22,7 @@ export const authFail = (error) => {
   };
 };
 
-export const auth = (email, password) => {
+export const authSignIn = (email, password) => {
   return dispatch => {
     dispatch(authStart());
     const authData = {
@@ -31,6 +31,28 @@ export const auth = (email, password) => {
     };
     console.log(authData);
     axios.post('http://localhost:5000/api/v1/auth/login', authData)
+      .then(response => {
+        console.log(response);
+        dispatch(authSuccess(response.data.token));
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch(authFail(err.response.data.error));
+      });
+  };
+};
+
+export const authRegister = (firstName, lastName, email, password) => {
+  return dispatch => {
+    dispatch(authStart());
+    const authData = {
+      firstName,
+      lastName,
+      email,
+      password
+    };
+    console.log(authData);
+    axios.post('http://localhost:5000/api/v1/auth/register', authData)
       .then(response => {
         console.log(response);
         dispatch(authSuccess(response.data.token));
