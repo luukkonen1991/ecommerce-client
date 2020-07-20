@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import FormInput from "../FormInput/FormInput";
-import FormButton from "../FormButton/FormButton";
+import FormInput from "../../ui-assets/Form/FormInput/FormInput";
+import FormButton from "../../ui-assets/Form/FormButton/FormButton";
 
 import "./RegisterForm.scss";
 
