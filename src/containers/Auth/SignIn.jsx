@@ -20,7 +20,7 @@ class SignIn extends Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    this.props.onAuth(this.state.email.value, this.state.password.value);
+    this.props.onAuth(this.state.email, this.state.password);
   };
 
   onChangeHandler = (e) => {

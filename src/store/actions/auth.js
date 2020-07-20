@@ -1,5 +1,6 @@
-import * as actionTypes from './actionTypes';
 import axios from 'axios';
+
+import * as actionTypes from './actionTypes';
 
 export const authStart = () => {
   return {
@@ -28,11 +29,15 @@ export const auth = (email, password) => {
       email: email,
       password: password
     };
-    axios.post('http://localhost:5000//api/v1/auth/login', authData)
-      .then()
+    console.log(authData);
+    axios.post('http://localhost:5000/api/v1/auth/login', authData)
+      .then(response => {
+        console.log(response);
+        dispatch(authSuccess(response.data.token));
+      })
       .catch(err => {
         console.log(err);
-        dispatch();
+        dispatch(authFail(err.response.data.error));
       });
   };
 };
