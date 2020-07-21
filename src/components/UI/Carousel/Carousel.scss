@@ -2,10 +2,28 @@
 	margin: 10px 0px;
 	border: 1px solid black;
 	* {
+		box-sizing: border-box;
 		margin: 0px;
-		border: 1px dotted red;
-		p {
+		h3 {
+			text-align: center;
 			color: blue;
+			position: absolute;
+			z-index: 5;
 		}
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+}
+
+.Btn-Container {
+	display: flex;
+	justify-content: center;
+	* {
+		border: none;
+		background-color: transparent;
+		font-size: x-large;
+		margin: 0 5px;
 	}
 }

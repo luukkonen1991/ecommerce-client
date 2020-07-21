@@ -1,6 +1,8 @@
 import React from 'react';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, ImageWithZoom } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 import './Carousel.scss';
 
@@ -14,15 +16,37 @@ const Carousel = props => {
       orientation={'horizontal'}
     >
       <Slider className="Slider" >
-        <Slide index={0}><p>I am the first Slide.</p></Slide>
-        <Slide index={1}>I am the second Slide.</Slide>
-        <Slide index={2}>I am the third Slide.</Slide>
-        <Slide index={3}><p>I am the 4 Slide.</p></Slide>
-        <Slide index={4}>I am the 5 Slide.</Slide>
-        <Slide index={5}>I am the 6 Slide.</Slide>
+        {/*--------------------------*/}
+        <Slide index={0}>
+          <h3>Title</h3>
+          <ImageWithZoom src="https://source.unsplash.com/random/800x600" alt="random" />
+        </Slide>
+        {/*--------------------------*/}
+        <Slide index={1}>
+          <h3>Title</h3>
+          <ImageWithZoom src="https://source.unsplash.com/random/800x600" alt="random" />
+        </Slide>
+        {/*--------------------------*/}
+        <Slide index={2}>
+          <ImageWithZoom src="https://source.unsplash.com/random/800x600" alt="random" />
+        </Slide>
+        {/*--------------------------*/}
+        <Slide index={3}>
+          <ImageWithZoom src="https://source.unsplash.com/random/800x600" alt="random" />
+        </Slide>
+        {/*--------------------------*/}
+        <Slide index={4}>
+          <ImageWithZoom src="https://source.unsplash.com/random/800x600" alt="random" />
+        </Slide>
+        {/*--------------------------*/}
+        <Slide index={5}>
+          <ImageWithZoom src="https://source.unsplash.com/random/800x600" alt="random" />
+        </Slide>
       </Slider>
-      <ButtonBack>Back</ButtonBack>
-      <ButtonNext>Next</ButtonNext>
+      <div className="Btn-Container">
+        <ButtonBack className="BtnBack"><FontAwesomeIcon icon={faArrowAltCircleLeft}></FontAwesomeIcon></ButtonBack>
+        <ButtonNext className="BtnNext"><FontAwesomeIcon icon={faArrowAltCircleRight}></FontAwesomeIcon></ButtonNext>
+      </div>
     </CarouselProvider>
   );
 };
