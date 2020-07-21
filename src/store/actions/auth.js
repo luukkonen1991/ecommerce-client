@@ -52,7 +52,7 @@ export const authRegister = (firstName, lastName, email, password) => {
       password
     };
     console.log(authData);
-    axios.post('http://localhost:5000/api/v1/auth/register', authData)
+    axios.post('/api/v1/auth/register', authData)
       .then(response => {
         console.log(response);
         dispatch(authSuccess(response.data.token));
