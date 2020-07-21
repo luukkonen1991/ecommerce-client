@@ -1,17 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import * as actions from "../../../redux/auth/auth.actions";
 
 import CartIcon from "../Toolbar/CartIcon/CartIcon";
-import SignOut from "../Toolbar/SignOut/SignOut";
+// import CartDropdown from "../Toolbar/CartIcon/CartDropdown/CartDropdown";
 
 import classes from "./NavigationItems.module.scss";
 
-const NavigationItems = (props) => {
-  const logOut = () => {
-    props.signOut();
-  };
+const NavigationItems = () => {
   return (
     <ul className={classes.NavigationItems}>
       <li>Item1</li>
@@ -19,21 +14,13 @@ const NavigationItems = (props) => {
         <li>Contact</li>
       </Link>
 
-      {!props.authenticated ? (
-        <Link to="/signin">
-          <li>Sign in</li>
-        </Link>
-      ) : (
-        <SignOut onClick={logOut} />
-      )}
+      <Link to="/signin">
+        <li>Sign in</li>
+      </Link>
 
       <CartIcon />
     </ul>
   );
 };
 
-function mapStateToProps(state) {
-  return { authenticated: state.auth.authenticated };
-}
-
-export default connect(mapStateToProps, actions)(NavigationItems);
+export default NavigationItems;
