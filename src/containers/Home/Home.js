@@ -10,7 +10,9 @@ const Home = () => {
   return (
     <div className="homepage-container">
       <FrontPageTeaser />
-      <Carousel />
+      <div className="Super-Promo-Container">
+        <Carousel />
+      </div>
     </div>
   );
 };
