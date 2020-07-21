@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { reduxForm, Field } from "redux-form";
+
 import classes from "./ContactForm.module.scss";
 import FormInput from "../../ui-assets/Form/FormInput/FormInput";
 import Button from "../../ui-assets/Button/Button";
@@ -17,26 +19,13 @@ const ContactForm = () => {
     <div className={classes.ContactForm}>
       <h1>Contact Us</h1>
       <form onSubmit={submitHandler}>
-        <FormInput
-          type="name"
-          name="name"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          label="name"
-        />
-        <FormInput
-          type="email"
-          name="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          label="email"
-        />
-        <FormInput
+        <Field type="name" name="name" label="name" component={FormInput} />
+        <Field type="email" name="email" label="email" component={FormInput} />
+        <Field
           type="message"
           name="message"
-          value={message}
-          onChange={(event) => setMessage(event.target.value)}
           label="message"
+          component={FormInput}
         />
         <div className={classes.btnClass}>
           <Button type="submit" align="Align-Center">
@@ -48,4 +37,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default reduxForm({ form: "contact" })(ContactForm);

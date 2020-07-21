@@ -4,7 +4,6 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 import Layout from "./hoc/Layout/Layout";
 import Home from "./containers/Home/Home";
-import SignInAndSignUp from "./containers/SignInAndSignUp/SignInAndSignUp";
 import ContactForm from "./containers/ContactForm/ContactForm";
 import ShopPage from "./containers/Shop/ShopPage";
 import SignInForm from "./components/Sign-in-form/Sign-in-form";
