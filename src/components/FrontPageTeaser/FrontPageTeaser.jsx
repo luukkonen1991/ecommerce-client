@@ -1,6 +1,6 @@
 import React from "react";
 
-import CategoryList from "./CategoryList/CategoryList";
+// import CategoryList from "./CategoryList/CategoryList";
 import LeftContent from "./LeftContent/LeftContent";
 import TeaserSlider from "./TeaserSlider/TeaserSlider";
 
