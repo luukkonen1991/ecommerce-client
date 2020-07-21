@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import FormInput from "../../../ui-assets/Form/FormInput/FormInput";
-import FormButton from "../../../ui-assets/Form/FormButton/FormButton";
+import FormInput from "../../../components/UI/Form/FormInput/FormInput";
+import FormButton from "../../../components/UI/Form/FormButton/FormButton";
 import * as actions from '../../../store/actions/index';
 
 import "./Register.scss";
