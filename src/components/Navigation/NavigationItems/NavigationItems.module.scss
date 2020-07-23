@@ -6,6 +6,10 @@
   flex-flow: row;
   align-items: center;
   height: 100%;
+
+  div {
+    display: flex;
+  }
   li {
     margin: 0 1.5rem;
   }

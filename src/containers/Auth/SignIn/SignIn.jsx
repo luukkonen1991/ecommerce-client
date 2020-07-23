@@ -18,9 +18,11 @@ class SignIn extends Component {
     };
   }
 
-  submitHandler = (e) => {
+  submitHandler = async (e) => {
     e.preventDefault();
-    this.props.onAuthSignIn(this.state.email, this.state.password);
+    await this.props.onAuthSignIn(this.state.email, this.state.password);
+    this.props.fetchUserData();
+
     this.setState({ email: "", password: "" });
   };
 
@@ -70,6 +72,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onAuthSignIn: (email, password) =>
       dispatch(actions.authSignIn(email, password)),
+    fetchUserData: () => dispatch(actions.fetchUserInfo()),
   };
 };
 

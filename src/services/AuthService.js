@@ -9,3 +9,11 @@ export const register = (formData) => {
 export const logIn = (formData) => {
   return axios.post(`${url}/login`, formData);
 };
+
+export const logout = () => {
+  return axios.get(`${url}/logout`);
+};
+
+export const getUser = () => {
+  return axios.get(`${url}/me`);
+};

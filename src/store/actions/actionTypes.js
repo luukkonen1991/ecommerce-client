@@ -1,4 +1,7 @@
-export const AUTH_START = 'AUTH_START';
-export const AUTH_SUCCESS = 'AUTH_SUCCESS';
-export const AUTH_FAIL = 'AUTH_FAIL';
-export const AUTH_LOGOUT = 'AUTH_LOGOUT';
+export const AUTH_START = "AUTH_START";
+export const AUTH_SUCCESS = "AUTH_SUCCESS";
+export const AUTH_FAIL = "AUTH_FAIL";
+export const AUTH_LOGOUT = "AUTH_LOGOUT";
+export const FETCH_USER_INFO = "FETCH_USER";
+export const TOGGLE_CART_HIDDEN = "TOGGLE_CART_HIDDEN";
+export const TOGGLE_USER_HIDDEN = "TOGGLE_USER_HIDDEN";

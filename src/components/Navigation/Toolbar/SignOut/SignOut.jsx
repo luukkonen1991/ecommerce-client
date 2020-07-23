@@ -1,9 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import "./SignOut.scss";
+import { connect } from "react-redux";
+import * as actions from "../../../../store/actions/index";
 
-class SignOut extends Component {
-  render() {
-    return <div className="sign-out">SIGN OUT</div>;
-  }
-}
-export default SignOut;
+const SignOut = (props) => {
+  return (
+    <div className="sign-out" onClick={props.onLogout}>
+      SIGN OUT
+    </div>
+  );
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogout: () => dispatch(actions.authSignout()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(SignOut);
