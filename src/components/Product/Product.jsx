@@ -1,14 +1,18 @@
-import React from "react";
+import React from 'react';
 
 import "./Product.scss";
 
-const Product = ({ id, title, description, price }) => (
-  <div className="single-product">
-    <div className="image">dfafaf</div>
-    <div className="product-footer">
-      <span className="title">{title}</span>
-      <span className="price">{price}</span>
+const Product = () => {
+  return (
+    <div className="product-container">
+      <div className="product-main-img-container">
+        <img src="https://source.unsplash.com/random/800x600" alt="disIsAltDesc" />
+      </div>
+      <div className="product-secondary-imgs-container">
+        <img src="https://source.unsplash.com/random/800x600" alt="disIsAltDesc" />
+      </div>
     </div>
-  </div>
-);
+  );
+};
+
 export default Product;

@@ -1,6 +1,6 @@
 .Slider {
 	margin: 10px 0px;
-	border: 1px solid black;
+	// border: 1px solid black;
 	* {
 		box-sizing: border-box;
 		margin: 0px;
@@ -11,6 +11,7 @@
 			z-index: 5;
 		}
 		img {
+			padding: 0 5px;
 			max-width: 100%;
 			height: auto;
 		}
@@ -25,5 +26,6 @@
 		background-color: transparent;
 		font-size: x-large;
 		margin: 0 5px;
+		// color: blue;
 	}
 }

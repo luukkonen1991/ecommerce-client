@@ -23,6 +23,12 @@ class Register extends Component {
   submitHandler = (e) => {
     e.preventDefault();
     this.props.onAuthRegister(this.state.firstName, this.state.lastName, this.state.email, this.state.password);
+    this.setState({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: ""
+    });
   };
 
   onChangeHandler = (e) => {

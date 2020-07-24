@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, ButtonFirst, ButtonLast, ImageWithZoom } from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, ButtonFirst, ButtonLast, Image } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft, faAngleDoubleRight, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons';
@@ -28,27 +28,27 @@ const Carousel = props => {
       <Slider className="Slider" >
         {/*--------------------------*/}
         <Slide index={0}>
-          <ImageWithZoom src="https://source.unsplash.com/random/800x600" alt="random" />
+          <Image src="https://source.unsplash.com/random/800x600" alt="random" />
         </Slide>
         {/*--------------------------*/}
         <Slide index={1}>
-          <ImageWithZoom src="https://source.unsplash.com/random/800x600" alt="random" />
+          <Image src="https://source.unsplash.com/random/800x600" alt="random" />
         </Slide>
         {/*--------------------------*/}
         <Slide index={2}>
-          <ImageWithZoom src="https://source.unsplash.com/random/800x600" alt="random" />
+          <Image src="https://source.unsplash.com/random/800x600" alt="random" />
         </Slide>
         {/*--------------------------*/}
         <Slide index={3}>
-          <ImageWithZoom src="https://source.unsplash.com/random/800x600" alt="random" />
+          <Image src="https://source.unsplash.com/random/800x600" alt="random" />
         </Slide>
         {/*--------------------------*/}
         <Slide index={4}>
-          <ImageWithZoom src="https://source.unsplash.com/random/800x600" alt="random" />
+          <Image src="https://source.unsplash.com/random/800x600" alt="random" />
         </Slide>
         {/*--------------------------*/}
         <Slide index={5}>
-          <ImageWithZoom src="https://source.unsplash.com/random/800x600" alt="random" />
+          <Image src="https://source.unsplash.com/random/800x600" alt="random" />
         </Slide>
       </Slider>
       <div className="Btn-Container">
