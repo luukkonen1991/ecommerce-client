@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { fetchAllProducts } from "../../services/ProductService";
-import Product from "../../components/Product/Product";
+import Product from "../../components/Product/ProductOld";
 
 import "./ShopPage.scss";
 
