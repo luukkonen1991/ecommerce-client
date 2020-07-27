@@ -34,19 +34,29 @@
 	}
 }
 
-.product-secondary-imgs-container {
+.product-sidebar-container {
 	max-width: 35%;
 	flex-grow: 1;
 	border: 1px solid blue;
 	background-color: aqua;
+	display: flex;
+	flex-direction: column;
 	h2 {
 		font-weight: 400;
 		font-size: 2.2em;
 		letter-spacing: 3px;
 	}
-	img {
-		margin: auto;
-		max-width: 60%;
-		height: auto;
+	.product-secondary-imgs-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		.product-secondary-img-container {
+			max-width: 50%;
+			margin: 0 auto;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
 	}
 }

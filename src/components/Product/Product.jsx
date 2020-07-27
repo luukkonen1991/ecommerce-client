@@ -11,9 +11,19 @@ const Product = () => {
           <p>Price 5,99€</p>
         </div>
       </div>
-      <div className="product-secondary-imgs-container">
+      <div className="product-sidebar-container">
         <h2>ProductTitle</h2>
-        <img src="https://source.unsplash.com/random/800x600" alt="disIsAltDesc" />
+        <div className="product-secondary-imgs-container">
+          <div className="product-secondary-img-container">
+            <img src="https://source.unsplash.com/random/800x600" alt="disIsAltDesc" />
+          </div>
+          <div className="product-secondary-img-container">
+            <img src="https://source.unsplash.com/random/800x600" alt="disIsAltDesc" />
+          </div>
+          <div className="product-secondary-img-container">
+            <img src="https://source.unsplash.com/random/800x600" alt="disIsAltDesc" />
+          </div>
+        </div>
       </div>
     </div>
   );
