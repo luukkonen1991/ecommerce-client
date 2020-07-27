@@ -11,7 +11,7 @@ import ShopPage from "./containers/Shop/ShopPage";
 // import RegisterForm from "./components/Register-form/RegisterForm";
 import SignIn from './containers/Auth/SignIn/SignIn';
 import Register from './containers/Auth/Register/Register';
-import Product from './components/Product/ProductOld';
+import Product from './components/Product/Product';
 
 
 let routes = (
