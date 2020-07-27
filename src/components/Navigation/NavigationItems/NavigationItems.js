@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import SignOut from "../Toolbar/SignOut/SignOut";
+import SignOut from "../Toolbar/UserProfileIcon/UserProfileDropdown/SignOut/SignOut";
 import CartIcon from "../Toolbar/CartIcon/CartIcon";
 import CartDropdown from "../Toolbar/CartIcon/CartDropdown/CartDropdown";
 import UserProfileIcon from "../Toolbar/UserProfileIcon/UserProfileIcon";
@@ -10,33 +10,34 @@ import UserProfileDropdown from "../Toolbar/UserProfileIcon/UserProfileDropdown/
 
 import classes from "./NavigationItems.module.scss";
 
-const NavigationItems = (props) => {
+const NavigationItems = ({ cartHidden, userHidden, authenticated }) => {
   return (
     <ul className={classes.NavigationItems}>
       <li>Item1</li>
-      <Link to="/contact">
-        <li>Contact</li>
-      </Link>
-      {!props.authenticated ? (
+      <li>
+        <Link className="header-link" to="/contact">
+          Contact
+        </Link>
+      </li>
+      {!authenticated ? (
         <Link to="/signin">
           <li>Sign in</li>
         </Link>
       ) : (
         <Fragment>
           <UserProfileIcon />
-          <SignOut />
           <CartIcon />
         </Fragment>
       )}
-      {props.userHidden ? null : <UserProfileDropdown />}
-      {props.cartHidden ? null : <CartDropdown />}
+      {userHidden ? null : <UserProfileDropdown />}
+      {cartHidden ? null : <CartDropdown />}
     </ul>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    authenticated: state.auth.token,
+    authenticated: state.auth.user,
     cartHidden: state.cart.hidden,
     userHidden: state.user.hidden,
   };

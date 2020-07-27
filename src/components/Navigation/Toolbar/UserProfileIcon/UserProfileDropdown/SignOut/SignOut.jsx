@@ -1,7 +1,7 @@
 import React from "react";
 import "./SignOut.scss";
 import { connect } from "react-redux";
-import * as actions from "../../../../store/actions/index";
+import * as actions from "../../../../../../store/actions/index";
 
 const SignOut = (props) => {
   return (

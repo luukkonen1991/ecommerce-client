@@ -4,6 +4,7 @@ import { updateObject } from "../../shared/util";
 const INITIAL_STATE = {
   hidden: true,
   userId: "",
+  firstName: "",
   lastName: "",
   email: "",
   role: "",

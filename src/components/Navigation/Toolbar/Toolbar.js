@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 
 import classes from "./Toolbar.module.scss";
 import NavigationItems from "../NavigationItems/NavigationItems";
@@ -20,8 +19,4 @@ function Toolbar(props) {
   );
 }
 
-// const mapStateToProps = (state) => {
-//   return { cartHidden: state.cart.hidden };
-// };
-
-export default connect()(Toolbar);
+export default Toolbar;

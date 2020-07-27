@@ -29,6 +29,9 @@ const middlewares = [thunk, logger];
 
 const store = createStore(
   rootReducer,
+  {
+    auth: { user: localStorage.getItem("id") },
+  },
   composeEnhancers(applyMiddleware(...middlewares))
 );
 

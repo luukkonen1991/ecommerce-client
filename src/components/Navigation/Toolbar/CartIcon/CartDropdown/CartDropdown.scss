@@ -1,23 +1,26 @@
-.user-profile-dropdown {
+.cart-dropdown {
   position: absolute;
-  width: 15rem;
-  height: 20rem;
+  width: 240px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   border: 1px solid black;
   background-color: white;
-  top: 7.5rem;
-  right: 10rem;
+  top: 75px;
+  right: 20px;
   z-index: 5;
 
-  .user-profile-items {
-    height: 10rem;
+  .cart-items {
+    height: 240px;
     display: flex;
     flex-direction: column;
+    overflow: scroll;
   }
 
-  h3 {
-    padding: 1rem 0;
+  button {
+    margin-top: auto;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
   }
 }

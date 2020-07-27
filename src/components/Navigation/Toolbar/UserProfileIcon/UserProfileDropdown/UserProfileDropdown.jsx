@@ -1,15 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import Account from "../../../../../containers/Account/Account";
+import SignOut from "./SignOut/SignOut";
 
 import "./UserProfileDropdown.scss";
 
 const UserProfileDropdown = () => {
   return (
     <div className="user-profile-dropdown">
-      <div className="user-profile-items">
-        <h3>Account</h3>
-        <h3>Orders</h3>
-        <h3>Log out</h3>
-      </div>
+      <ul className="user-profile-items">
+        <li>
+          <Link className="user-profile-dropdown-link" to="/account">
+            <span>Account</span>
+          </Link>
+        </li>
+        <li>Orders</li>
+        <li>
+          <SignOut />
+        </li>
+      </ul>
     </div>
   );
 };

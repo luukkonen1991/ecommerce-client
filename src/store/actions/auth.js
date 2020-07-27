@@ -8,10 +8,11 @@ export const authStart = () => {
   };
 };
 
-export const authSuccess = (token) => {
+export const authSuccess = (token, userId) => {
   return {
     type: actionTypes.AUTH_SUCCESS,
     token: token,
+    user: userId,
   };
 };
 
@@ -22,10 +23,11 @@ export const authFail = (error) => {
   };
 };
 
-export const authLogout = (token) => {
+export const authLogout = () => {
   return {
     type: actionTypes.AUTH_LOGOUT,
-    token: token,
+    token: null,
+    user: null,
   };
 };
 
@@ -36,12 +38,12 @@ export const authSignIn = (email, password) => {
       email: email,
       password: password,
     };
-    console.log(authData);
     axios
       .post("/api/v1/auth/login", authData)
       .then((response) => {
         console.log(response);
-        dispatch(authSuccess(response.data.token));
+        dispatch(authSuccess(response.data.token, response.data.userId));
+        localStorage.setItem("id", response.data.userId);
       })
       .catch((err) => {
         console.log(err);
@@ -64,7 +66,8 @@ export const authRegister = (firstName, lastName, email, password) => {
       .post("/api/v1/auth/register", authData)
       .then((response) => {
         console.log(response);
-        dispatch(authSuccess(response.data.token));
+        dispatch(authSuccess(response.data.token, response.data.userId));
+        localStorage.setItem("id", response.data.userId);
       })
       .catch((err) => {
         console.log(err);
@@ -74,10 +77,11 @@ export const authRegister = (firstName, lastName, email, password) => {
 };
 
 export const authSignout = () => {
+  localStorage.removeItem("id");
   return (dispatch) => {
     axios.get("/api/v1/auth/logout").then((response) => {
       console.log(response);
-      dispatch(authLogout(null));
+      dispatch(authLogout());
     });
   };
 };

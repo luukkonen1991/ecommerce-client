@@ -1,26 +1,33 @@
-.cart-dropdown {
+.user-profile-dropdown {
   position: absolute;
-  width: 240px;
-  height: 300px;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border: 1px solid black;
+  border: 1px solid grey;
   background-color: white;
-  top: 75px;
-  right: 20px;
+  top: 5rem;
+  right: 10rem;
   z-index: 5;
 
-  .cart-items {
-    height: 240px;
+  .user-profile-items {
+    height: 10rem;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    list-style: none;
+
+    .user-profile-dropdown-link:link,
+    .user-profile-dropdown-link:visited {
+      text-decoration: none;
+      color: black;
+    }
   }
 
-  button {
-    margin-top: auto;
-    font-size: 1.2rem;
-    letter-spacing: 0.2rem;
+  li {
+    padding: 1rem 0;
+    text-decoration: none;
+  }
+
+  Link {
+    text-decoration: none;
   }
 }
