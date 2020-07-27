@@ -8,6 +8,7 @@ import './Carousel.scss';
 
 const Carousel = props => {
   const [visibleSlides, setVisibleSlides] = useState(3);
+  const [superPromoItems, setSuperPromoItems] = useState([]);
 
   useEffect(() => {
     if (window.screen.width <= 600) {
@@ -15,6 +16,9 @@ const Carousel = props => {
     }
   }, []);
 
+  useEffect(() => {
+    setSuperPromoItems(props.superPromoItems);
+  }, [props.superPromoItems]);
 
 
   return (
@@ -26,30 +30,7 @@ const Carousel = props => {
       orientation={'horizontal'}
     >
       <Slider className="Slider" >
-        {/*--------------------------*/}
-        <Slide index={0}>
-          <Image src="https://source.unsplash.com/random/800x600" alt="random" />
-        </Slide>
-        {/*--------------------------*/}
-        <Slide index={1}>
-          <Image src="https://source.unsplash.com/random/800x600" alt="random" />
-        </Slide>
-        {/*--------------------------*/}
-        <Slide index={2}>
-          <Image src="https://source.unsplash.com/random/800x600" alt="random" />
-        </Slide>
-        {/*--------------------------*/}
-        <Slide index={3}>
-          <Image src="https://source.unsplash.com/random/800x600" alt="random" />
-        </Slide>
-        {/*--------------------------*/}
-        <Slide index={4}>
-          <Image src="https://source.unsplash.com/random/800x600" alt="random" />
-        </Slide>
-        {/*--------------------------*/}
-        <Slide index={5}>
-          <Image src="https://source.unsplash.com/random/800x600" alt="random" />
-        </Slide>
+        {superPromoItems.map((item, index) => { return (<Slide index={index} key={index}><Image src={`/uploads/${item.main_img}`} className="Img-Class" ></Image><h2>{item.title}</h2></Slide>); })}
       </Slider>
       <div className="Btn-Container">
         <ButtonFirst className="BtnBack"><FontAwesomeIcon icon={faAngleDoubleLeft}></FontAwesomeIcon></ButtonFirst>
@@ -62,3 +43,29 @@ const Carousel = props => {
 };
 
 export default Carousel;
+
+
+    //    {/*--------------------------*/}
+    //    <Slide index={0}>
+    //    <Image src="https://source.unsplash.com/random/800x600" alt="random" />
+    //  </Slide>
+    //  {/*--------------------------*/}
+    //  <Slide index={1}>
+    //    <Image src="https://source.unsplash.com/random/800x600" alt="random" />
+    //  </Slide>
+    //  {/*--------------------------*/}
+    //  <Slide index={2}>
+    //    <Image src="https://source.unsplash.com/random/800x600" alt="random" />
+    //  </Slide>
+    //  {/*--------------------------*/}
+    //  <Slide index={3}>
+    //    <Image src="https://source.unsplash.com/random/800x600" alt="random" />
+    //  </Slide>
+    //  {/*--------------------------*/}
+    //  <Slide index={4}>
+    //    <Image src="https://source.unsplash.com/random/800x600" alt="random" />
+    //  </Slide>
+    //  {/*--------------------------*/}
+    //  <Slide index={5}>
+    //    <Image src="https://source.unsplash.com/random/800x600" alt="random" />
+    //  </Slide>
