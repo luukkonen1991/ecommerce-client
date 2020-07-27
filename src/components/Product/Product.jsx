@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { fetchProductById } from '../../services/ProductService';
 
 import "./Product.scss";
@@ -8,6 +8,7 @@ const Product = props => {
   const [product, setProduct] = useState({});
   const [activeImg, setActiveImg] = useState(null);
   const [secondaryImgs, setSecondaryImgs] = useState([]);
+  const secondaryImgEl = useRef(null);
 
   useEffect(() => {
     let itemId = props.match.params.id;
@@ -16,12 +17,21 @@ const Product = props => {
       setActiveImg(resp.data.data.main_img);
       setSecondaryImgs(resp.data.data.product_imgs);
     });
-  }, [props.match.params.id, setSecondaryImgs]);
+  }, [props.match.params.id, setSecondaryImgs, activeImg]);
+
+  const activeImgChangeHandler = () => {
+
+  };
 
   if (secondaryImgs) {
     secondaryImgDivs = secondaryImgs.map((item) => {
       return (
-        <div className="product-secondary-img-container">
+        <div
+          className="product-secondary-img-container"
+          ref={secondaryImgEl}
+          onClick={activeImgChangeHandler}
+          key={item}
+          id={item}>
           <img src={`/uploads/${item}`} alt="disIsAltDesc" />
         </div>
       );
