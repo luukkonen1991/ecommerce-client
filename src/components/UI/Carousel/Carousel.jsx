@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, ButtonFirst, ButtonLast, Image } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,15 +21,22 @@ const Carousel = props => {
     setSuperPromoItems(props.superPromoItems);
   }, [props.superPromoItems]);
 
+
   if (props.superPromoItems) {
     slides = superPromoItems.map((item, index) => {
       return (
-        <Slide index={index} key={index} className="Slide">
-          <h3>{item.title}</h3>
-          <Image src={`/uploads/${item.main_img}`}>
-          </Image>
-          <p>{item.price}€</p>
-        </Slide>);
+        <Link
+          key={item.id}
+          className="slider-item-link"
+          to={`product/${item.id}`}
+        >
+          <Slide index={index} className="Slide">
+            <h3>{item.title}</h3>
+            <Image src={`/uploads/${item.main_img}`} alt="someAlt">
+            </Image>
+            <p>{item.price}€</p>
+          </Slide>
+        </Link>);
     });
   }
 

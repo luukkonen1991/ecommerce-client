@@ -28,15 +28,17 @@
 			// height: 90%;
 			// width: auto;
 			// position: relative;
+			&:hover {
+				cursor: pointer;
+			}
 		}
 		p {
-			color: red;
-			border: 1px solid black;
+			color: #596e79;
 			position: absolute;
 			font-size: 1.4em;
 			bottom: 14px;
 			left: 10px;
-			background-color: #f0ece3;
+			background-color: #dfd3c3;
 			padding: 2px;
 		}
 	}
