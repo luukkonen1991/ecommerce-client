@@ -7,30 +7,41 @@ import { faAngleRight, faAngleLeft, faAngleDoubleRight, faAngleDoubleLeft } from
 import './Carousel.scss';
 
 const Carousel = props => {
-  const [visibleSlides, setVisibleSlides] = useState(3);
+  const [visibleSlides, setVisibleSlides] = useState(6);
   const [superPromoItems, setSuperPromoItems] = useState([]);
+  let slides;
 
   useEffect(() => {
     if (window.screen.width <= 600) {
       setVisibleSlides(1);
     }
   }, []);
-
   useEffect(() => {
     setSuperPromoItems(props.superPromoItems);
   }, [props.superPromoItems]);
 
+  if (props.superPromoItems) {
+    slides = superPromoItems.map((item, index) => {
+      return (
+        <Slide index={index} key={index} className="Slide">
+          <h3>{item.title}</h3>
+          <Image src={`/uploads/${item.main_img}`}>
+          </Image>
+          <p>{item.price}€</p>
+        </Slide>);
+    });
+  }
 
   return (
     <CarouselProvider
       visibleSlides={visibleSlides}
-      naturalSlideWidth={600}
-      naturalSlideHeight={400}
+      naturalSlideWidth={250}
+      naturalSlideHeight={300}
       totalSlides={6}
       orientation={'horizontal'}
     >
       <Slider className="Slider" >
-        {superPromoItems.map((item, index) => { return (<Slide index={index} key={index}><Image src={`/uploads/${item.main_img}`} className="Img-Class" ></Image><h2>{item.title}</h2></Slide>); })}
+        {slides}
       </Slider>
       <div className="Btn-Container">
         <ButtonFirst className="BtnBack"><FontAwesomeIcon icon={faAngleDoubleLeft}></FontAwesomeIcon></ButtonFirst>
