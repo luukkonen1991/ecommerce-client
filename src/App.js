@@ -7,10 +7,12 @@ import Home from "./containers/Home/Home";
 
 import ContactForm from "./containers/ContactForm/ContactForm";
 import ShopPage from "./containers/Shop/ShopPage";
-import SignIn from "./containers/Auth/SignIn/SignIn";
-import Register from "./containers/Auth/Register/Register";
+
 import Account from "./containers/Account/Account";
 import UserProfile from "./containers/Account/AccountContent/UserProfile/UserProfile";
+import SignIn from "./containers/Auth/SignIn/SignIn";
+import Register from "./containers/Auth/Register/Register";
+import Product from "./components/Product/Product";
 
 let routes = (
   <Switch>
@@ -21,6 +23,8 @@ let routes = (
     <Route path="/shop" component={ShopPage} />
     <Route path="/account" component={Account} />
     <Route path="/account/details" component={UserProfile} />
+    <Route path="/product/:id" component={Product} />
+    <Redirect to="/" />
   </Switch>
 );
 
