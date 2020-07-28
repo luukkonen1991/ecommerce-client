@@ -3,7 +3,7 @@ import React from "react";
 import classes from "./Toolbar.module.scss";
 import NavigationItems from "../NavigationItems/NavigationItems";
 import Banner from "./Banner/Banner";
-import CartDropdown from "./CartIcon/CartDropdown/CartDropdown";
+// import CartDropdown from "./CartIcon/CartDropdown/CartDropdown";
 
 function Toolbar() {
   return (
@@ -14,7 +14,6 @@ function Toolbar() {
       <nav>
         <NavigationItems />
       </nav>
-      <CartDropdown />
     </header>
   );
 }

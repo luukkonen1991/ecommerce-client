@@ -11,6 +11,7 @@ import ShopPage from "./containers/Shop/ShopPage";
 // import RegisterForm from "./components/Register-form/RegisterForm";
 import SignIn from './containers/Auth/SignIn/SignIn';
 import Register from './containers/Auth/Register/Register';
+import Product from './components/Product/Product';
 
 
 let routes = (
@@ -20,6 +21,7 @@ let routes = (
     <Route path="/register" component={Register} />
     <Route path="/contact" component={ContactForm} />
     <Route path="/shop" component={ShopPage} />
+    <Route path="/product/:id" component={Product} />
     <Redirect to="/" />
   </Switch>
 );

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 import classes from "./ContactForm.module.scss";
-import FormInput from "../../ui-assets/Form/FormInput/FormInput";
-import Button from "../../ui-assets/Button/Button";
+import FormInput from "../../components/UI/Form/FormInput/FormInput";
+import Button from "../../components/UI/Button/Button";
 
 const ContactForm = () => {
   const [name, setName] = useState("");

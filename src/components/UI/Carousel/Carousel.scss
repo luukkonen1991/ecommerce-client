@@ -1,0 +1,56 @@
+.Slider {
+	margin: 10px 0px;
+	max-height: 40vh;
+	// max-width: 600px;
+	// border: 1px solid black;
+	.Slide {
+		// box-sizing: border-box;
+		// margin: 0px;
+		border: 4px solid transparent;
+		height: auto;
+		max-width: 100%;
+		// margin: 0 2.5px;
+		// width: auto;
+		h3 {
+			background-color: #f0ece3;
+			text-align: center;
+			color: blue;
+			// position: absolute;
+			z-index: 5;
+		}
+		img {
+			background-color: #f0ece3;
+			// margin: 0 auto;
+			padding: 0 5px;
+			margin: 0 auto;
+			max-width: 100%;
+			height: auto;
+			// height: 90%;
+			// width: auto;
+			// position: relative;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		p {
+			color: #596e79;
+			position: absolute;
+			font-size: 1.4em;
+			bottom: 14px;
+			left: 10px;
+			background-color: #dfd3c3;
+			padding: 2px;
+		}
+	}
+}
+.Btn-Container {
+	display: flex;
+	justify-content: center;
+	* {
+		border: none;
+		background-color: transparent;
+		font-size: x-large;
+		margin: 0 5px;
+		// color: blue;
+	}
+}
