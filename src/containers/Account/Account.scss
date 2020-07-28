@@ -21,12 +21,27 @@
     margin-top: 3.5rem;
 
     &__item {
+      position: relative;
+
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
     }
 
+    &__item:hover {
+      background-color: #e4dede;
+    }
+    &__item:active {
+      background-color: #d6d2d2;
+    }
+    &__item:focus {
+      background-color: purple;
+    }
     &__link:link,
     &__link:visited {
       color: black;
       text-decoration: none;
+      text-transform: uppercase;
       display: block;
       padding: 1.5rem 2rem;
       cursor: pointer;

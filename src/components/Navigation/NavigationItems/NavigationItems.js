@@ -13,16 +13,20 @@ import classes from "./NavigationItems.module.scss";
 const NavigationItems = ({ cartHidden, userHidden, authenticated }) => {
   return (
     <ul className={classes.NavigationItems}>
-      <li>Item1</li>
-      <li>
-        <Link className="header-link" to="/contact">
-          Contact
+      <li className="nav-item">
+        <span>Item1</span>
+      </li>
+      <li className="nav-item">
+        <Link className="nav-item__link" to="/contact">
+          <span>Contact</span>
         </Link>
       </li>
       {!authenticated ? (
-        <Link to="/signin">
-          <li>Sign in</li>
-        </Link>
+        <li>
+          <Link className="nav-item__link" to="/signin">
+            <span>Sign in</span>
+          </Link>
+        </li>
       ) : (
         <Fragment>
           <UserProfileIcon />
