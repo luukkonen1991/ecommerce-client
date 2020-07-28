@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 import FormInput from "../../../components/UI/Form/FormInput/FormInput";
 import FormButton from "../../../components/UI/Form/FormButton/FormButton";
-import * as actions from '../../../store/actions/index';
+import * as actions from "../../../store/actions/index";
 
 import "./SignIn.scss";
 
@@ -18,12 +18,12 @@ class SignIn extends Component {
     };
   }
 
-  submitHandler = (e) => {
+  submitHandler = async (e) => {
     e.preventDefault();
     this.props.onAuthSignIn(this.state.email, this.state.password);
     this.setState({
       email: "",
-      password: ""
+      password: "",
     });
   };
 
@@ -59,11 +59,7 @@ class SignIn extends Component {
             Sign in
           </FormButton>
           <Link to="/register">
-            <FormButton
-              type="button"
-              onClick={this.props.handleFormChange}
-              label="switch"
-            >
+            <FormButton type="button" label="switch">
               New user? Register here!
             </FormButton>
           </Link>
@@ -73,9 +69,10 @@ class SignIn extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    onAuthSignIn: (email, password) => dispatch(actions.authSignIn(email, password))
+    onAuthSignIn: (email, password) =>
+      dispatch(actions.authSignIn(email, password)),
   };
 };
 

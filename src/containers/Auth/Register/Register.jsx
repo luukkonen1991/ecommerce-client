@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 import FormInput from "../../../components/UI/Form/FormInput/FormInput";
 import FormButton from "../../../components/UI/Form/FormButton/FormButton";
-import * as actions from '../../../store/actions/index';
+import * as actions from "../../../store/actions/index";
 
 import "./Register.scss";
 
@@ -22,12 +22,17 @@ class Register extends Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    this.props.onAuthRegister(this.state.firstName, this.state.lastName, this.state.email, this.state.password);
+    this.props.onAuthRegister(
+      this.state.firstName,
+      this.state.lastName,
+      this.state.email,
+      this.state.password
+    );
     this.setState({
       firstName: "",
       lastName: "",
       email: "",
-      password: ""
+      password: "",
     });
   };
 
@@ -79,11 +84,7 @@ class Register extends Component {
             Register
           </FormButton>
           <Link to="/signin">
-            <FormButton
-              type="button"
-              onClick={this.props.handleFormChange}
-              label="switch"
-            >
+            <FormButton type="button" label="switch">
               Back to login page
             </FormButton>
           </Link>
@@ -93,9 +94,10 @@ class Register extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    onAuthRegister: (firstName, lastName, email, password) => dispatch(actions.authRegister(firstName, lastName, email, password))
+    onAuthRegister: (firstName, lastName, email, password) =>
+      dispatch(actions.authRegister(firstName, lastName, email, password)),
   };
 };
 
