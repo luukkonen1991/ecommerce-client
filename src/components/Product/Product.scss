@@ -50,9 +50,10 @@
 	}
 	.product-secondary-imgs-container {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
+		flex-wrap: wrap;
 		// justify-content: center;
-		overflow: scroll;
+		// overflow: scroll;
 		.product-secondary-img-container {
 			max-width: 50%;
 			margin: 0 auto;
