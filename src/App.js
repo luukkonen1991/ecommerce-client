@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
 
 import "./App.css";
 import Layout from "./hoc/Layout/Layout";
@@ -26,11 +25,7 @@ let routes = (
 );
 
 const App = (props) => {
-  return <Layout user={props.user}>{routes}</Layout>;
+  return <Layout>{routes}</Layout>;
 };
 
-const mapStateToProps = ({ auth }) => ({
-  user: auth.user,
-});
-
-export default connect(mapStateToProps)(App);
+export default App;
