@@ -8,7 +8,6 @@ const Product = props => {
   const [product, setProduct] = useState({});
   const [activeImg, setActiveImg] = useState(null);
   const [secondaryImgs, setSecondaryImgs] = useState([]);
-  // const secondaryImg = useRef();
 
   useEffect(() => {
     console.log('ComponentDidMount');
@@ -49,6 +48,12 @@ const Product = props => {
       <div className="product-sidebar-container">
         <h2>ProductTitle</h2>
         <div className="product-secondary-imgs-container">
+          <div
+            className="product-secondary-img-container"
+            onClick={activeImgChangeHandler}
+            id={product.main_img}>
+            <img src={`/uploads/${product.main_img}`} alt="disIsAltDesc" onClick={() => setActiveImg(product.main_img)} />
+          </div>
           {secondaryImgDivs}
         </div>
       </div>

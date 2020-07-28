@@ -53,11 +53,11 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		// justify-content: space-evenly;
-		// justify-content: center;
+		justify-content: flex-start;
 		// overflow: scroll;
 		.product-secondary-img-container {
-			margin: 10px;
-			max-width: 25%;
+			margin: 5px 5px;
+			max-width: 20%;
 			// margin: 0 auto;
 			img {
 				background-color: #f0ece3;
