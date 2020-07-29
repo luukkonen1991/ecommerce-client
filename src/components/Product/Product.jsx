@@ -19,19 +19,17 @@ const Product = props => {
     });
   }, [props.match.params.id]);
 
-  const activeImgChangeHandler = () => {
-
-  };
-
   if (secondaryImgs) {
     secondaryImgDivs = secondaryImgs.map((item) => {
       return (
         <div
           className="product-secondary-img-container"
-          onClick={activeImgChangeHandler}
+          style={{ backgroundImage: `url(http://localhost:5000/uploads/${item})`, color: "red" }}
           key={item}
-          id={item}>
-          <img src={`/uploads/${item}`} alt="disIsAltDesc" onClick={() => setActiveImg(item)} />
+          id={item}
+          onClick={() => setActiveImg(item)}
+        >
+          <p>hello</p>
         </div>
       );
     });
@@ -40,8 +38,7 @@ const Product = props => {
   return (
     <div className="product-container">
       <div className="product-main-img-container">
-        <div className="main-img-item">
-          <img src={`/uploads/${activeImg}`} alt="disIsAltDesc" />
+        <div className="main-img-item" style={{ backgroundImage: `url(http://localhost:5000/uploads/${activeImg})` }}>
           <p>{product.price}€</p>
         </div>
       </div>
@@ -50,9 +47,12 @@ const Product = props => {
         <div className="product-secondary-imgs-container">
           <div
             className="product-secondary-img-container"
-            onClick={activeImgChangeHandler}
-            id={product.main_img}>
-            <img src={`/uploads/${product.main_img}`} alt="disIsAltDesc" onClick={() => setActiveImg(product.main_img)} />
+            style={{
+              backgroundImage: `url(http://localhost:5000/uploads/${product.main_img})`
+            }}
+            id={product.main_img}
+            onClick={() => setActiveImg(product.main_img)}
+          >
           </div>
           {secondaryImgDivs}
         </div>
