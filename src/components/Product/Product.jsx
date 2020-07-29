@@ -29,7 +29,6 @@ const Product = props => {
           id={item}
           onClick={() => setActiveImg(item)}
         >
-          <p>hello</p>
         </div>
       );
     });
