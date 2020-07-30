@@ -35,6 +35,7 @@ const Carousel = props => {
             <div style={{ backgroundImage: `url(http://localhost:5000/uploads/${item.main_img})` }}>
             </div>
             <div className="promo-tag-div">
+              <p>-20%</p>
             </div>
             <p>{item.price}€</p>
           </Slide>
