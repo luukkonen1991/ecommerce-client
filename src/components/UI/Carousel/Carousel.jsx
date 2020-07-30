@@ -37,7 +37,8 @@ const Carousel = props => {
             <div className="promo-tag-div">
               <p>-20%</p>
             </div>
-            <p>{item.price}€</p>
+            <p className="original-price">{item.price}€</p>
+            <p className="discount-price">1.99€</p>
           </Slide>
         </Link>);
     });
