@@ -7,7 +7,7 @@ const Product = props => {
   let secondaryImgDivs;
   const [product, setProduct] = useState({});
   const [activeImg, setActiveImg] = useState(null);
-  const [secondaryImgs, setSecondaryImgs] = useState([]);
+  const [secondaryImgs, setSecondaryImgs] = useState();
 
   useEffect(() => {
     console.log('ComponentDidMount');
@@ -15,23 +15,29 @@ const Product = props => {
     fetchProductById(itemId).then(resp => {
       setProduct(resp.data.data);
       setActiveImg(resp.data.data.main_img);
-      setSecondaryImgs(resp.data.data.product_imgs);
+      setSecondaryImgs([resp.data.data.main_img, ...resp.data.data.product_imgs]);
     });
   }, [props.match.params.id]);
+
+  console.log(secondaryImgs);
 
   if (secondaryImgs) {
     secondaryImgDivs = secondaryImgs.map((item) => {
       return (
         <div
-          className="product-secondary-img-container"
-          style={{ backgroundImage: `url(http://localhost:5000/uploads/${item})`, color: "red" }}
+          className={"product-secondary-img-container " + (item === activeImg ? "selected-img" : '')}
+          style={{ backgroundImage: `url(http://localhost:5000/uploads/${item})` }}
           key={item}
           id={item}
-          onClick={() => setActiveImg(item)}
+          onClick={() => productImgHandler(item)}
         >
         </div>
       );
     });
+  };
+
+  const productImgHandler = (img) => {
+    setActiveImg(img);
   };
 
   return (
@@ -44,15 +50,6 @@ const Product = props => {
       <div className="product-sidebar-container">
         <h2>ProductTitle</h2>
         <div className="product-secondary-imgs-container">
-          <div
-            className="product-secondary-img-container"
-            style={{
-              backgroundImage: `url(http://localhost:5000/uploads/${product.main_img})`
-            }}
-            id={product.main_img}
-            onClick={() => setActiveImg(product.main_img)}
-          >
-          </div>
           {secondaryImgDivs}
         </div>
       </div>
@@ -61,6 +58,19 @@ const Product = props => {
 };
 
 export default Product;
+
+
+// <div
+// className="product-secondary-img-container"
+// style={{
+//   backgroundImage: `url(http://localhost:5000/uploads/${product.main_img})`
+// }}
+// id={product.main_img}
+// onClick={() => productImgHandler(product.main_img)}
+// >
+// </div>
+
+
 
 
 

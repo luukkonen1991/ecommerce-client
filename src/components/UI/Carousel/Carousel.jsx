@@ -8,7 +8,7 @@ import { faAngleRight, faAngleLeft, faAngleDoubleRight, faAngleDoubleLeft } from
 import './Carousel.scss';
 
 const Carousel = props => {
-  const [visibleSlides, setVisibleSlides] = useState(6);
+  const [visibleSlides, setVisibleSlides] = useState(3);
   const [superPromoItems, setSuperPromoItems] = useState([]);
   let slides;
 
