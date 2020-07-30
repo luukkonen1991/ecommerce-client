@@ -48,7 +48,8 @@ const Product = props => {
         </div>
       </div>
       <div className="product-sidebar-container">
-        <h2>ProductTitle</h2>
+        <h2>{product.title}</h2>
+        <p>{product.price}€</p>
         <div className="product-secondary-imgs-container">
           {secondaryImgDivs}
         </div>

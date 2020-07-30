@@ -61,6 +61,10 @@
 		font-weight: 400;
 		font-size: 2.2em;
 		letter-spacing: 3px;
+		display: inline-block;
+	}
+	p {
+		display: inline-block;
 	}
 	.product-secondary-imgs-container {
 		display: flex;
@@ -77,15 +81,15 @@
 			height: 80px;
 			// height: 100%;
 			// width: auto;
-			border: 3px solid beige;
+			border: 3px solid #f0ece3;
 			background-size: contain;
 			background-repeat: no-repeat;
 			background-position: center;
-			background-color: beige;
+			background-color: #f0ece3;
 			// margin: 0 auto;
 		}
 		.selected-img {
-			border: 3px solid red;
+			border: 3px solid orange;
 		}
 	}
 }
