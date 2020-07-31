@@ -28,7 +28,7 @@ const Carousel = props => {
         <Link
           key={item.id}
           className="slider-item-link"
-          to={`product/${item.id}`}
+          to={`products/${item.id}`}
         >
           <Slide index={index} className="Slide">
             <h3>{item.title}</h3>

@@ -21,7 +21,7 @@ let routes = (
     <Route path="/register" component={Register} />
     <Route path="/contact" component={ContactForm} />
     <Route path="/shop" component={ShopPage} />
-    <Route path="/product/:id" component={Product} />
+    <Route path="/products/:id" component={Product} />
     <Redirect to="/" />
   </Switch>
 );
