@@ -5,7 +5,7 @@ import NavigationItems from "../NavigationItems/NavigationItems";
 import Banner from "./Banner/Banner";
 // import CartDropdown from "./CartIcon/CartDropdown/CartDropdown";
 
-function Toolbar() {
+function Toolbar(props) {
   return (
     <header className={classes.Toolbar}>
       <div className={classes.Logo}>

@@ -1,0 +1,38 @@
+.profile-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  .profile-info-header {
+    padding: 1rem;
+  }
+
+  .profile-sections {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    .profile-section {
+      padding: 1rem;
+      margin: 3rem;
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .section-icon {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      .user-detail-item {
+        padding: 1.5rem;
+
+        .detail-value {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}

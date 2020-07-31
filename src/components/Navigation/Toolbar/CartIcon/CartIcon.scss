@@ -7,11 +7,16 @@
   justify-content: center;
   cursor: pointer;
 
+  .cart-pic {
+    width: 60%;
+    height: 60%;
+  }
+
   .item-count {
     position: absolute;
     font-size: 1rem;
     font-weight: bold;
     bottom: 0;
-    left: 47%;
+    left: 48%;
   }
 }

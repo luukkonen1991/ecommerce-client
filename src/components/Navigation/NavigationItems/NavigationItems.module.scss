@@ -6,7 +6,20 @@
   flex-flow: row;
   align-items: center;
   height: 100%;
+
+  div {
+    display: flex;
+  }
   li {
     margin: 0 1.5rem;
+    padding: 1rem 0;
+  }
+
+  a:link,
+  a:visited {
+    text-decoration: none;
+    color: black;
+    padding: 1.5rem 2rem;
+    cursor: pointer;
   }
 }

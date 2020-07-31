@@ -1,10 +1,11 @@
-import * as actionTypes from '../actions/actionTypes';
-import { updateObject } from '../../shared/util';
+import * as actionTypes from "../actions/actionTypes";
+import { updateObject } from "../../shared/util";
 
 const initialState = {
   token: null,
+  user: null,
   error: null,
-  loading: false
+  loading: false,
 };
 
 const authStart = (state, action) => {
@@ -14,17 +15,25 @@ const authStart = (state, action) => {
 const authSuccess = (state, action) => {
   return updateObject(state, {
     token: action.token,
-    loading: false
+    user: action.user,
+    loading: false,
   });
 };
 
 const authFail = (state, action) => {
   return updateObject(state, {
     error: action.error,
-    loading: false
+    loading: false,
   });
 };
 
+const authLogout = (state, action) => {
+  return updateObject(state, {
+    token: action.token,
+    loading: false,
+    user: action.user,
+  });
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -34,6 +43,8 @@ const reducer = (state = initialState, action) => {
       return authSuccess(state, action);
     case actionTypes.AUTH_FAIL:
       return authFail(state, action);
+    case actionTypes.AUTH_LOGOUT:
+      return authLogout(state, action);
     default:
       return state;
   }

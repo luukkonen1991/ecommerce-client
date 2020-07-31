@@ -1,14 +1,22 @@
+:root {
+  --color-primary: #f0ece3;
+  --color-primary-light: #dfd3c3;
+  --color-primary-dark: #c7b198;
+
+  --color-grey-light-1: #596e79;
+}
+
 .Toolbar {
   height: 10vh;
   width: 100%;
   // position: fixed;
   // top: 0;
   // left: 0;
-  background-color: skyblue;
+  background-color: #596e79;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 2rem;
-  box-sizing: border-box;
   z-index: 100;
 
   .Logo {
