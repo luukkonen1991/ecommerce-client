@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, ButtonFirst, ButtonLast, Image } from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, ButtonFirst, ButtonLast } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft, faAngleDoubleRight, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons';
@@ -8,7 +8,7 @@ import { faAngleRight, faAngleLeft, faAngleDoubleRight, faAngleDoubleLeft } from
 import './Carousel.scss';
 
 const Carousel = props => {
-  const [visibleSlides, setVisibleSlides] = useState(6);
+  const [visibleSlides, setVisibleSlides] = useState(4);
   const [superPromoItems, setSuperPromoItems] = useState([]);
   let slides;
 
@@ -28,13 +28,17 @@ const Carousel = props => {
         <Link
           key={item.id}
           className="slider-item-link"
-          to={`product/${item.id}`}
+          to={`products/${item.id}`}
         >
           <Slide index={index} className="Slide">
             <h3>{item.title}</h3>
-            <Image src={`/uploads/${item.main_img}`} alt="someAlt">
-            </Image>
-            <p>{item.price}€</p>
+            <div style={{ backgroundImage: `url(http://localhost:5000/uploads/${item.main_img})` }}>
+            </div>
+            <div className="promo-tag-div">
+              <p>-20%</p>
+            </div>
+            <p className="original-price">{item.price}€</p>
+            <p className="discount-price">1.99€</p>
           </Slide>
         </Link>);
     });
@@ -62,6 +66,9 @@ const Carousel = props => {
 };
 
 export default Carousel;
+
+// <Image src={`/uploads/${item.main_img}`} alt="someAlt">
+// </Image>
 
 
     //    {/*--------------------------*/}
