@@ -1,23 +1,81 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
+import Button from "../../../../components/UI/Button/Button";
+import EditModal from "../../../../components/UI/Modal/EditModal/EditModal";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faAddressBook } from "@fortawesome/free-solid-svg-icons";
 import "./UserProfile.scss";
 
 const UserProfile = (props) => {
-  useEffect(() => {
-    console.log("UserProfile rendered");
+  console.log(props);
+  const [modal, setModal] = useState(false);
+  const [userInfo, setUserInfo] = useState({
+    title: "Edit your profile information.",
+    firstName: props.firstName,
+    lastName: props.lastName,
+    email: props.email,
   });
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
   return (
     <div className="profile-container">
-      <div className="user-details">
-        <h3>name</h3>
-        <p>
-          {props.firstName} {props.lastName}
-        </p>
-        <h3>email</h3>
-        <p>{props.email}</p>
+      <div className="profile-info-header">
+        <h2>My profile information</h2>
+        <p>Here you can view and edit your profile and address information.</p>
       </div>
-      <div className="address-details"></div>
+      <div className="profile-sections">
+        <div className="profile-section">
+          <FontAwesomeIcon className="section-icon" icon={faUser} />
+
+          <div className="user-detail-item">
+            <span>Name</span>
+            <p className="detail-value">
+              {props.firstName} {props.lastName}
+            </p>
+          </div>
+          <div className="user-detail-item">
+            <span>Email</span>
+            <p className="detail-value">{props.email}</p>
+          </div>
+          <Button
+            className="edit-btn"
+            onClick={() => {
+              // setSection("userinfo");
+              // setTitle("Edit your profile information.");
+              toggleModal();
+            }}
+          >
+            Edit
+          </Button>
+        </div>
+        <div className="profile-section">
+          <FontAwesomeIcon className="section-icon" icon={faAddressBook} />
+          <div className="user-detail-item">
+            <span>Address</span>
+            <p className="detail-value"></p>
+          </div>
+          <div className="user-detail-item">
+            <span>Phone number</span>
+            <p className="detail-value"></p>
+          </div>
+          <Button
+            className="edit-btn"
+            onClick={() => {
+              // setSection("addressinfo");
+              // setTitle("Edit your address details.");
+              toggleModal();
+            }}
+          >
+            Edit
+          </Button>
+        </div>
+      </div>
+      {modal ? <EditModal userInfo={userInfo} /> : null}
     </div>
   );
 };
@@ -25,7 +83,7 @@ const UserProfile = (props) => {
 const mapStateToProps = (state) => {
   return {
     firstName: state.user.firstName,
-    lastName: state.user.LastName,
+    lastName: state.user.lastName,
     email: state.user.email,
   };
 };

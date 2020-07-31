@@ -1,0 +1,17 @@
+.editmodal {
+  background-color: white;
+  border: 1px solid black;
+  width: 40%;
+  top: 40px;
+  padding: 16px;
+  position: fixed;
+  z-index: 10;
+
+  .editmodal-header {
+    font-size: 2rem;
+    margin-bottom: 5rem;
+  }
+
+  .editmodal-form {
+  }
+}

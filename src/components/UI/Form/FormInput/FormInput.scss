@@ -9,7 +9,6 @@ $main-color: black;
 
 .input-container {
   position: relative;
-  margin: 3rem 0;
 
   .form-input {
     background-color: white;
@@ -49,5 +48,19 @@ $main-color: black;
     &.shrink {
       @include shrinkLabel();
     }
+  }
+
+  .editform-input {
+    background-color: white;
+    color: black;
+    font-size: 1.8rem;
+    padding: 1rem 1rem 1rem 0.5rem;
+    display: block;
+    width: 70%;
+    border-style: inset;
+    border-radius: 0;
+    margin: 0 0 3rem 0;
+    border-width: 1px;
+    border: 1px solid black;
   }
 }

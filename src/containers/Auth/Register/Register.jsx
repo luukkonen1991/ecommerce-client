@@ -79,15 +79,16 @@ class Register extends Component {
             required
             label="password"
           ></FormInput>
-
-          <FormButton type="submit" label="register">
-            Register
-          </FormButton>
-          <Link to="/signin">
-            <FormButton type="button" label="switch">
-              Back to login page
+          <div className="buttons">
+            <FormButton type="submit" label="register">
+              Register
             </FormButton>
-          </Link>
+            <Link to="/signin">
+              <FormButton type="button" label="switch">
+                Back to login page
+              </FormButton>
+            </Link>
+          </div>
         </form>
       </div>
     );

@@ -55,14 +55,16 @@ class SignIn extends Component {
             label="password"
           ></FormInput>
 
-          <FormButton type="submit" label="submit">
-            Sign in
-          </FormButton>
-          <Link to="/register">
-            <FormButton type="button" label="switch">
-              New user? Register here!
+          <div className="buttons">
+            <FormButton type="submit" label="submit">
+              Sign in
             </FormButton>
-          </Link>
+            <Link to="/register">
+              <FormButton type="button" label="switch">
+                New user? Register here!
+              </FormButton>
+            </Link>
+          </div>
         </form>
       </div>
     );
