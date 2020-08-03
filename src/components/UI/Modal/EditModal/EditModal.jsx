@@ -5,25 +5,34 @@ import Button from "../../Button/Button";
 
 import "./EditModal.scss";
 
-const EditModal = (props) => {
-  console.log(props);
-  console.log(props[Object.keys(props)[0]]);
-  const [data, setData] = useState(props[Object.keys(props)[0]]);
+const EditModal = ({ userInfo }) => {
+  console.log(userInfo);
+  const [data, setData] = useState(userInfo);
   console.log(data);
 
   //   useEffect(() => {
   //     setData(props[Object.keys(props)[0]]);
   //   });
 
-  const keys = Object.keys(Object.values(props)[0]);
+  const keys = Object.keys(data);
+  const modifiedKeys = keys.map((key) => {
+    const firstLetter = key.charAt(0).toUpperCase();
+    const rest = key
+      .split(/(?=[A-Z])/)
+      .join(" ")
+      .toLowerCase()
+      .slice(1);
+    console.log(rest);
+    return firstLetter + rest;
+  });
 
   return (
     <div className="editmodal">
       <div className="editmodal-header">{data.title ? data.title : null}</div>
       <div className="editmodal-body">
         <form className="userinfo-form">
-          {keys
-            .filter((key) => key !== "title")
+          {modifiedKeys
+            .filter((key) => key !== "Title")
             .map((key) => {
               return (
                 <div className={`info-item ${key}`} key={key}>
@@ -44,7 +53,6 @@ const EditModal = (props) => {
                 </div>
               );
             })}
-          {/* {createInputs()} */}
           <Button className="edit-btn" />
         </form>
       </div>
@@ -53,29 +61,3 @@ const EditModal = (props) => {
 };
 
 export default EditModal;
-
-//   const createInputs = () => {
-//     console.log(data.firstName);
-//     const keys = Object.keys(data);
-//     const inputs = [];
-
-//     for (const key of keys) {
-//       if (key === "title") {
-//         continue;
-//       }
-//       console.log(data.key);
-//       inputs.push(
-//         <div className={`info-item ${key}`} key={key}>
-//           <label className="input-label">{key}</label>
-//           <FormInput
-//             type="text"
-//             name={key}
-//             value={data[key]}
-//             required
-//             formtype="editform-input"
-//           />
-//         </div>
-//       );
-//     }
-//     return inputs;
-//   };
