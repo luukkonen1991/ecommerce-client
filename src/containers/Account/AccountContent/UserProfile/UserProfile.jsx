@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import Button from "../../../../components/UI/Button/Button";
@@ -11,7 +12,13 @@ import "./UserProfile.scss";
 const UserProfile = (props) => {
   console.log(props);
   const [modal, setModal] = useState(false);
-  const [userInfo, setUserInfo] = useState({
+  // const [userInfo, setUserInfo] = useState({
+  //   title: "Edit your profile information.",
+  //   firstName: props.firstName,
+  //   lastName: props.lastName,
+  //   email: props.email,
+  // });
+  const [userInfo] = useState({
     title: "Edit your profile information.",
     firstName: props.firstName,
     lastName: props.lastName,
