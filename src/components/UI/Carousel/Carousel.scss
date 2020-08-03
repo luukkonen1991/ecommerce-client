@@ -8,6 +8,7 @@
 		// margin: 0px;
 		// margin: 5px;
 		// border: 4px solid transparent;
+		position: relative;
 		border: 10px solid transparent;
 		height: auto;
 		max-width: 100%;
@@ -38,9 +39,38 @@
 			background-position: center;
 			background-color: #f0ece3;
 			overflow: hidden;
+			.discount-stamp {
+				height: 10%;
+				position: absolute;
+				top: 20px;
+				right: 20px;
+			}
+			.original-price {
+				color: #596e79;
+				position: absolute;
+				font-size: 1.4em;
+				font-weight: 400;
+				bottom: 54px;
+				left: 10px;
+				background-color: #dfd3c3;
+				padding: 4px;
+				text-decoration: line-through;
+			}
+			.discount-price {
+				color: red;
+				position: absolute;
+				font-size: 1.6em;
+				font-weight: 400;
+				bottom: 14px;
+				left: 10px;
+				padding: 4px;
+				background-color: #dfd3c3;
+				// background-color: red;
+				// border: 2px solid white;
+			}
 		}
+
 		.promo-tag-div {
-			content: "SALE!";
 			position: absolute;
 			right: -45px;
 			top: 0px;
@@ -61,44 +91,6 @@
 				background-color: red;
 				font-weight: 500;
 			}
-		}
-		// img {
-		// 	background-color: #f0ece3;
-		// 	// margin: 0 auto;
-		// 	padding: 0 5px;
-		// 	margin: 0 auto;
-		// 	max-width: 100%;
-		// 	height: auto;
-		// 	object-fit: contain;
-		// 	// height: 90%;
-		// 	// width: auto;
-		// 	// position: relative;
-		// 	&:hover {
-		// 		cursor: pointer;
-		// 	}
-		// }
-		.original-price {
-			color: #596e79;
-			position: absolute;
-			font-size: 1.4em;
-			font-weight: 400;
-			bottom: 54px;
-			left: 10px;
-			background-color: #dfd3c3;
-			padding: 4px;
-			text-decoration: line-through;
-		}
-		.discount-price {
-			color: red;
-			position: absolute;
-			font-size: 1.6em;
-			font-weight: 400;
-			bottom: 14px;
-			left: 10px;
-			padding: 4px;
-			background-color: #dfd3c3;
-			// background-color: red;
-			// border: 2px solid white;
 		}
 	}
 }

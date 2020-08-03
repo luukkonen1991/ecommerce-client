@@ -5,6 +5,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft, faAngleDoubleRight, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons';
 
+import DiscountStamp from '../Stamps/DiscountStamp/DiscountStamp';
 import './Carousel.scss';
 
 const Carousel = props => {
@@ -33,12 +34,13 @@ const Carousel = props => {
           <Slide index={index} className="Slide">
             <h3>{item.title}</h3>
             <div style={{ backgroundImage: `url(http://localhost:5000/uploads/${item.main_img})` }}>
+
+              <DiscountStamp className="discount-stamp" ></DiscountStamp>
+              <p className="original-price">{item.price}€</p>
+              <p className="discount-price">1.99€</p>
             </div>
-            <div className="promo-tag-div">
-              <p>-20%</p>
-            </div>
-            <p className="original-price">{item.price}€</p>
-            <p className="discount-price">1.99€</p>
+
+
           </Slide>
         </Link>);
     });
