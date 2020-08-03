@@ -34,13 +34,10 @@ const Carousel = props => {
           <Slide index={index} className="Slide">
             <h3>{item.title}</h3>
             <div style={{ backgroundImage: `url(http://localhost:5000/uploads/${item.main_img})` }}>
-
-              <DiscountStamp className="discount-stamp" ></DiscountStamp>
-              <p className="original-price">{item.price}€</p>
-              <p className="discount-price">1.99€</p>
             </div>
-
-
+            <DiscountStamp className="discount-stamp">-20%</DiscountStamp>
+            <p className="original-price">{item.price}€</p>
+            <p className="discount-price">1.99€</p>
           </Slide>
         </Link>);
     });

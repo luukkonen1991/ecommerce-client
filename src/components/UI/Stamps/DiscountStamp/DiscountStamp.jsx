@@ -5,8 +5,8 @@ import "./DiscountStamp.scss";
 
 const DiscountStamp = props => {
   return (
-    <div className="discount-img" style={{ backgroundImage: `url(${discountImg})` }}>
-      <h1>{props.children}</h1>
+    <div id="discount-img" style={{ backgroundImage: `url(${discountImg})` }}>
+      <p id="discount-percentage">{props.children}</p>
     </div>
   );
 };
