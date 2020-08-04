@@ -10,16 +10,17 @@ import girls from "./womens.png";
 
 const TeaserSliderItem = props => {
   const [targetGroupItemData, setTargetGroupItemData] = useState();
-  const titleArr = ['MEN', 'WOMEN', 'BOYS', 'GIRLS'];
+  // const titleArr = ['MEN', 'WOMEN', 'BOYS', 'GIRLS'];
   const imgArr = [men, women, boys, girls];
   const { count, targetGroupItem } = props;
 
   useEffect(() => {
+    console.log('[TeaserSliderComponent Rendered]');
     // setTargetGroupItem(targetGroupItemProp);
-    console.log('propsCount', count);
+    // console.log('propsCount', count);
     console.log('[targetGroup]', targetGroupItem);
     setTargetGroupItemData(targetGroupItem);
-  }, [count, targetGroupItem]);
+  }, [targetGroupItem]);
 
   console.log(targetGroupItemData, '[ITEM!]');
 
@@ -30,7 +31,7 @@ const TeaserSliderItem = props => {
         style={{ backgroundImage: `url(${imgArr[count]})` }}
       ></div>
       <div className="content">
-        <h1 className="title">{titleArr[count]}</h1>
+        <h1 className="title">{targetGroupItem ? targetGroupItem.title.toUpperCase() : ''}</h1>
         <span className="subtitle">SHOP NOW</span>
       </div>
     </div>
