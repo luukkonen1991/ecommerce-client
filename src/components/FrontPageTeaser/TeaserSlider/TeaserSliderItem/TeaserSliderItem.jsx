@@ -34,7 +34,7 @@ const TeaserSliderItem = props => {
           style={{ backgroundImage: `url(${imgArr[count]})` }}
         >
         </div>
-        <Link className="content" to={`shop/${targetGroupItem.title}`} >
+        <Link className="content" to={{ pathname: `shop/${targetGroupItem.title}`, state: { targetId: targetGroupItem.id } }} >
           <h1 className="title">{targetGroupItem.title.toUpperCase()}</h1>
           <span className="subtitle">SHOP NOW</span>
         </Link>

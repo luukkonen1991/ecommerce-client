@@ -21,8 +21,8 @@ let routes = (
     <Route exact path="/signin" component={SignIn} />
     <Route path="/register" component={Register} />
     <Route path="/contact" component={ContactForm} />
-    <Route path="/shop" component={ShopPage} />
     <Route path="/shop/:targetGroup" component={ProductGategories} />
+    <Route path="/shop" component={ShopPage} />
     <Route path="/products/:id" component={Product} />
     <Route path="/account" component={Account} />
     <Route path="/account/details" component={UserProfile} />
