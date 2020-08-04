@@ -13,6 +13,7 @@ import UserProfile from "./containers/Account/AccountContent/UserProfile/UserPro
 import SignIn from "./containers/Auth/SignIn/SignIn";
 import Register from "./containers/Auth/Register/Register";
 import Product from "./components/Product/Product";
+import ProductGategories from "./components/ProductCategories/ProductCategories";
 
 let routes = (
   <Switch>
@@ -21,6 +22,7 @@ let routes = (
     <Route path="/register" component={Register} />
     <Route path="/contact" component={ContactForm} />
     <Route path="/shop" component={ShopPage} />
+    <Route path="/shop/:targetGroup" component={ProductGategories} />
     <Route path="/products/:id" component={Product} />
     <Route path="/account" component={Account} />
     <Route path="/account/details" component={UserProfile} />

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-
-// import Spinner from '../../../UI/Spinner/Spinner';
+import { Link } from 'react-router-dom';
+import Spinner from '../../../UI/Spinner/Spinner';
 import "./TeaserSliderItem.scss";
 import men from "./men.png";
 import women from "./womens.png";
@@ -24,18 +24,23 @@ const TeaserSliderItem = props => {
 
   console.log(targetGroupItemData, '[ITEM!]');
 
-  return (
-    <div className="item-promo" key={props.count}>
-      <div
-        className="background-image"
-        style={{ backgroundImage: `url(${imgArr[count]})` }}
-      ></div>
-      <div className="content">
-        <h1 className="title">{targetGroupItem ? targetGroupItem.title.toUpperCase() : ''}</h1>
-        <span className="subtitle">SHOP NOW</span>
+  if (!targetGroupItem) {
+    return <Spinner />;
+  } else {
+    return (
+      <div className="item-promo" key={props.count}>
+        <div
+          className="background-image"
+          style={{ backgroundImage: `url(${imgArr[count]})` }}
+        >
+        </div>
+        <Link className="content" to={`shop/${targetGroupItem.title}`} >
+          <h1 className="title">{targetGroupItem.title.toUpperCase()}</h1>
+          <span className="subtitle">SHOP NOW</span>
+        </Link>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default TeaserSliderItem;

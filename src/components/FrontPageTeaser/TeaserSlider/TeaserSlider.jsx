@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import "./TeaserSlider.scss";
+// import Spinner from '../../UI/Spinner/Spinner'
 import TeaserSliderItem from './TeaserSliderItem/TeaserSliderItem';
+import "./TeaserSlider.scss";
 
 const TeaserSlider = props => {
   const [count, setCount] = useState(0);
