@@ -6,10 +6,12 @@ import SuperPromoCarousel from '../../components/SuperPromoCarousel/SuperPromoCa
 // import Carousel from '../../components/UI/Carousel/Carousel';
 
 import { fetchAllProducts } from '../../services/ProductService';
+import { fetchAllTargetGroups } from '../../services/TargetGroupService';
 
 import "./Home.scss";
 
 const Home = () => {
+  const [targetGroups, setTargetGroups] = useState([]);
   const [superPromoItems, setSuperPromoItems] = useState([]);
 
   useEffect(() => {
@@ -20,9 +22,17 @@ const Home = () => {
       });
   }, []);
 
+  useEffect(() => {
+    fetchAllTargetGroups()
+      .then(resp => {
+        console.log(resp.data.data);
+        setTargetGroups(resp.data.data);
+      });
+  }, []);
+
   return (
     <div className="homepage-container">
-      <FrontPageTeaser />
+      <FrontPageTeaser targetGroups={targetGroups} />
       <SuperPromoCarousel superPromoItems={superPromoItems} />
     </div>
   );

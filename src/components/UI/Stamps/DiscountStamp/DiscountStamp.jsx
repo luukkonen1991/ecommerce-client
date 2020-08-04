@@ -1,5 +1,5 @@
 import React from 'react';
-import discountImg from '../../../../shared/images/discount/discount-stamp.png';
+import discountImg from '../../../../shared/images/discount/discount-stamp2.png';
 
 import "./DiscountStamp.scss";
 

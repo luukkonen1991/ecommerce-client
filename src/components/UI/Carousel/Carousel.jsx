@@ -32,12 +32,13 @@ const Carousel = props => {
           to={`products/${item.id}`}
         >
           <Slide index={index} className="Slide">
-            <h3>{item.title}</h3>
-            <div style={{ backgroundImage: `url(http://localhost:5000/uploads/${item.main_img})` }}>
-            </div>
             <DiscountStamp className="discount-stamp">-20%</DiscountStamp>
-            <p className="original-price">{item.price}€</p>
-            <p className="discount-price">1.99€</p>
+            <div style={{ backgroundImage: `url(http://localhost:5000/uploads/${item.main_img})` }}>
+              <p className="original-price">{item.price}€</p>
+              <p className="discount-price">1.99€</p>
+            </div>
+            <h2>Men</h2>
+            <h3>T-shirt / Regular Fit</h3>
           </Slide>
         </Link>);
     });

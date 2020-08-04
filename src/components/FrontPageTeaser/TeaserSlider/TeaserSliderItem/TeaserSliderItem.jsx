@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
+// import Spinner from '../../../UI/Spinner/Spinner';
 import "./TeaserSliderItem.scss";
 import men from "./men.png";
 import women from "./womens.png";
@@ -7,14 +8,20 @@ import boys from "./men.png";
 import girls from "./womens.png";
 
 
-const TeaserSliderItem = (props) => {
+const TeaserSliderItem = props => {
+  const [targetGroupItemData, setTargetGroupItemData] = useState();
   const titleArr = ['MEN', 'WOMEN', 'BOYS', 'GIRLS'];
   const imgArr = [men, women, boys, girls];
-  const { count } = props;
+  const { count, targetGroupItem } = props;
 
   useEffect(() => {
+    // setTargetGroupItem(targetGroupItemProp);
     console.log('propsCount', count);
-  }, [count]);
+    console.log('[targetGroup]', targetGroupItem);
+    setTargetGroupItemData(targetGroupItem);
+  }, [count, targetGroupItem]);
+
+  console.log(targetGroupItemData, '[ITEM!]');
 
   return (
     <div className="item-promo" key={props.count}>
