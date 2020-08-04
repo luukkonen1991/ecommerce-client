@@ -45,8 +45,6 @@ const UserProfile = (props) => {
           <Button
             className="edit-btn"
             onClick={() => {
-              // setSection("userinfo");
-              // setTitle("Edit your profile information.");
               toggleModal();
             }}
           >
@@ -66,8 +64,6 @@ const UserProfile = (props) => {
           <Button
             className="edit-btn"
             onClick={() => {
-              // setSection("addressinfo");
-              // setTitle("Edit your address details.");
               toggleModal();
             }}
           >
@@ -75,7 +71,9 @@ const UserProfile = (props) => {
           </Button>
         </div>
       </div>
-      {modal ? <EditModal userInfo={userInfo} /> : null}
+      {modal ? (
+        <EditModal userInfo={userInfo} toggleModal={toggleModal} />
+      ) : null}
     </div>
   );
 };

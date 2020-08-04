@@ -23,3 +23,14 @@
   background-color: red;
   font-size: 80%;
 }
+
+.edit-success {
+  background-color: #00b252;
+  max-width: 20rem;
+  text-align: center;
+  &:hover {
+    background-color: #04a54f;
+    color: white;
+    border: 0.1rem solid black;
+  }
+}

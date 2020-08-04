@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 import FormInput from "../../Form/FormInput/FormInput";
+import FormButton from "../../Form/FormButton/FormButton";
 import Button from "../../Button/Button";
 
 import "./EditModal.scss";
 
-const EditModal = ({ userInfo }) => {
+const EditModal = ({ userInfo, toggleModal }) => {
   console.log(userInfo);
   const [data, setData] = useState(userInfo);
   console.log(data);
@@ -28,9 +29,17 @@ const EditModal = ({ userInfo }) => {
 
   return (
     <div className="editmodal">
+      <div
+        className="x-icon"
+        onClick={() => {
+          toggleModal();
+        }}
+      >
+        X
+      </div>
       <div className="editmodal-header">{data.title ? data.title : null}</div>
       <div className="editmodal-body">
-        <form className="userinfo-form">
+        <form className="editmodal-form">
           {modifiedKeys
             .filter((key) => key !== "Title")
             .map((key) => {
@@ -53,7 +62,7 @@ const EditModal = ({ userInfo }) => {
                 </div>
               );
             })}
-          <Button className="edit-btn" />
+          <FormButton label="edit-success">Save changes</FormButton>
         </form>
       </div>
     </div>

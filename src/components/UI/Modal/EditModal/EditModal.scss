@@ -7,11 +7,33 @@
   position: fixed;
   z-index: 10;
 
+  .x-icon {
+    content: "\00d7";
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    color: black;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
   .editmodal-header {
     font-size: 2rem;
     margin-bottom: 5rem;
   }
 
-  .editmodal-form {
+  .editmodal-body {
+    .editmodal-form {
+      display: flex;
+      flex-direction: column;
+
+      .info-item {
+      }
+    }
   }
 }
