@@ -1,6 +1,18 @@
 .main-container {
 	margin: auto;
 	background-color: pink;
-	width: 80vw;
+	width: 90vw;
 	height: auto;
+}
+
+.category-container {
+	background-color: blue;
+	.category-img {
+		background-color: gold;
+		height: 35vh;
+	}
+	.category-content {
+		background-color: beige;
+		height: 30vh;
+	}
 }
