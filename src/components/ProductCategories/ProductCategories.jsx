@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { } from '../../services/TargetGroupService';
+import "./ProductCategories.scss";
 
 const ProductCategories = props => {
+  const [targetId, setTargetId] = useState();
 
   useEffect(() => {
     console.log('[ProductCategoriesComponent Rendered]');
@@ -9,7 +13,7 @@ const ProductCategories = props => {
   }, [props]);
 
   return (
-    <div>
+    <div className="main-container">
       <h1>Hello im ProductCategoriesComp</h1>
     </div>
   );
