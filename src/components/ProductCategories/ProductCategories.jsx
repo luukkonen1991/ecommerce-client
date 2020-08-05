@@ -33,31 +33,48 @@ const ProductCategories = props => {
 
   console.log(targetCategories, '[TARGETCATEGORIES]');
 
-  categoryContainerContent =
+  categoryContainerContent = targetCategories.map((category) => {
+    return (
+      <h1>TITLE: {category}</h1>
+    );
+  });
 
-    categoryProductContent = targetCategories.map((category) => {
-      let products = targetGroupProducts.filter(product => { return product.category.title === category; });
-      console.log(products, '[PRODUCTS .,.fadsf]');
-      return (
-        <div className="category-container" >
+  categoryProductContent = targetCategories.map((category) => {
+    let products = targetGroupProducts.filter(product => { return product.category.title === category; });
+    return (
 
-        </div>
-      );
-    });
+      <div>
+        <h1>
+          {category}
+        </h1>
+        {products.map((product) => {
+          return (
+            <div className="category-content" >
+              <h1>{product.title}</h1>
+            </div>
+          );
+        })}
+      </div>
+
+    );
+  });
 
   return (
     <div className="main-container">
       <p>i am the main-container</p>
       <div className="category-container" >
-        <div className="category-img" >
-          <p>hello</p>
-        </div>
-        <div className="category-content" >
-          <p>hello</p>
-        </div>
+        {categoryProductContent}
       </div>
     </div>
   );
 };
 
 export default ProductCategories;
+
+
+// <div className="category-img" >
+// {categoryContainerContent}
+// </div>
+// <div className="category-content" >
+// {categoryProductContent}
+// </div>
