@@ -1,67 +1,74 @@
 import React, { useState, useEffect } from "react";
 
+import { connect } from "react-redux";
+import * as actions from "../../../../store/actions/index";
+
 import FormInput from "../../Form/FormInput/FormInput";
 import FormButton from "../../Form/FormButton/FormButton";
-import Button from "../../Button/Button";
 
 import "./EditModal.scss";
 
-const EditModal = ({ userInfo, toggleModal }) => {
-  console.log(userInfo);
-  const [data, setData] = useState(userInfo);
-  console.log(data);
+// const EditModal = ({ userInfo, toggleModal, onUserUpdate }) => {
+//   console.log(userInfo);
+//   const [data, setData] = useState(userInfo);
+//   console.log(data);
+//   console.log(onUserUpdate);
 
-  //   useEffect(() => {
-  //     setData(props[Object.keys(props)[0]]);
-  //   });
+const EditModal = (props) => {
+  const [data, setData] = useState(props.userInfo[1]);
+  const [title, setTitle] = useState(props.userInfo[0].title);
 
   const keys = Object.keys(data);
-  const modifiedKeys = keys.map((key) => {
+
+  const modifyKey = (key) => {
     const firstLetter = key.charAt(0).toUpperCase();
     const rest = key
       .split(/(?=[A-Z])/)
       .join(" ")
       .toLowerCase()
       .slice(1);
-    console.log(rest);
     return firstLetter + rest;
-  });
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    props.onUserUpdate(data);
+    props.toggleModal();
+  };
 
   return (
     <div className="editmodal">
       <div
         className="x-icon"
         onClick={() => {
-          toggleModal();
+          props.toggleModal();
         }}
       >
         X
       </div>
-      <div className="editmodal-header">{data.title ? data.title : null}</div>
+      <div className="editmodal-header">{title ? title : null}</div>
       <div className="editmodal-body">
-        <form className="editmodal-form">
-          {modifiedKeys
-            .filter((key) => key !== "Title")
-            .map((key) => {
-              return (
-                <div className={`info-item ${key}`} key={key}>
-                  <label className="input-label">{key}</label>
-                  <FormInput
-                    type="text"
-                    name={key}
-                    value={data[key]}
-                    onChange={(e) =>
-                      setData({
-                        ...data,
-                        [key]: e.target.value,
-                      })
-                    }
-                    required
-                    formtype="editform-input"
-                  />
-                </div>
-              );
-            })}
+        <form className="editmodal-form" onSubmit={submitHandler}>
+          {keys.map((key) => {
+            return (
+              <div className={`info-item ${key}`} key={key}>
+                <label className="input-label">{key}</label>
+                <FormInput
+                  type="text"
+                  name={modifyKey(key)}
+                  value={data[key]}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      [key]: e.target.value,
+                    })
+                  }
+                  required
+                  formtype="editform-input"
+                />
+              </div>
+            );
+          })}
           <FormButton label="edit-success">Save changes</FormButton>
         </form>
       </div>
@@ -69,4 +76,10 @@ const EditModal = ({ userInfo, toggleModal }) => {
   );
 };
 
-export default EditModal;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onUserUpdate: (data) => dispatch(actions.updateUserInfo(data)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(EditModal);

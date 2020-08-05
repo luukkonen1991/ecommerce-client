@@ -11,12 +11,14 @@ import "./UserProfile.scss";
 const UserProfile = (props) => {
   console.log(props);
   const [modal, setModal] = useState(false);
-  const [userInfo, setUserInfo] = useState({
-    title: "Edit your profile information.",
-    firstName: props.firstName,
-    lastName: props.lastName,
-    email: props.email,
-  });
+  const [userInfo, setUserInfo] = useState([
+    { title: "Edit your profile information." },
+    {
+      firstName: props.firstName,
+      lastName: props.lastName,
+      email: props.email,
+    },
+  ]);
 
   const toggleModal = () => {
     setModal(!modal);
