@@ -12,6 +12,7 @@ const Product = (props) => {
   const [product, setProduct] = useState({});
   const [activeImg, setActiveImg] = useState(null);
   const [secondaryImgs, setSecondaryImgs] = useState();
+  console.log(activeImg);
 
   useEffect(() => {
     console.log("ComponentDidMount");

@@ -1,10 +1,25 @@
 import * as actionTypes from "../actions/actionTypes";
 // import { updateObject } from "../../shared/util";
-import { addCartItem } from "../../shared/util";
 
 const INITIAL_STATE = {
   hidden: true,
   cartItems: [],
+};
+
+const addCartItem = (cartItems, cartItemToAdd) => {
+  const existingCartItem = cartItems.find(
+    (cartItem) => cartItem.id === cartItemToAdd.id
+  );
+  console.log(existingCartItem);
+
+  if (existingCartItem) {
+    return cartItems.map((cartItem) =>
+      cartItem.id === cartItemToAdd.id
+        ? { ...cartItem, quantity: cartItem.quantity + 1 }
+        : cartItem
+    );
+  }
+  return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
