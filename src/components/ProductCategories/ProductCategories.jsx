@@ -8,14 +8,14 @@ const ProductCategories = props => {
   // const [targetId, setTargetId] = useState();
   const [targetGroupProducts, setTargetGroupProducts] = useState();
   const [targetCategories, setTargetCategories] = useState([]);
-  let categoryContainerContent;
+  // let categoryContainerContent;
   let categoryProductContent;
 
   useEffect(() => {
     console.log('PRODUCTCATEGORIES RENDERED');
-    console.log('[ProductCategoriesComponent Rendered]');
-    console.log(props.match);
-    console.log(props.location.state.targetId);
+    // console.log('[ProductCategoriesComponent Rendered]');
+    // console.log(props.match);
+    // console.log(props.location.state.targetId);
     fetchAllProducts({ params: { targetGroupId: props.location.state.targetId, include: "category" } })
       .then(resp => {
         setTargetGroupProducts(resp.data.data);
@@ -31,31 +31,31 @@ const ProductCategories = props => {
   }, [props, targetCategories]);
 
 
-  console.log(targetCategories, '[TARGETCATEGORIES]');
+  // console.log(targetCategories, '[TARGETCATEGORIES]');
 
-  categoryContainerContent = targetCategories.map((category) => {
-    return (
-      <h1>TITLE: {category}</h1>
-    );
-  });
+  // categoryContainerContent = targetCategories.map((category) => {
+  //   return (
+  //     <h1>TITLE: {category}</h1>
+  //   );
+  // });
 
   categoryProductContent = targetCategories.map((category) => {
     let products = targetGroupProducts.filter(product => { return product.category.title === category; });
     return (
-
       <div>
-        <h1>
+        <div className="category-img">
           {category}
-        </h1>
-        {products.map((product) => {
-          return (
-            <div className="category-content" >
-              <h1>{product.title}</h1>
-            </div>
-          );
-        })}
+        </div>
+        <div className="category-content" >
+          {products.map((product) => {
+            return (
+              <div className="category-item" >
+                {product.title}
+              </div>
+            );
+          })}
+        </div>
       </div>
-
     );
   });
 
