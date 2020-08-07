@@ -11,6 +11,7 @@ import "./UserProfile.scss";
 const UserProfile = (props) => {
   console.log(props);
   const [modal, setModal] = useState(false);
+  const [data, setData] = useState();
   const [userInfo, setUserInfo] = useState([
     { title: "Edit your profile information." },
     {
@@ -19,6 +20,7 @@ const UserProfile = (props) => {
       email: props.email,
     },
   ]);
+  console.log(data);
 
   const toggleModal = () => {
     setModal(!modal);
@@ -47,6 +49,7 @@ const UserProfile = (props) => {
           <Button
             className="edit-btn"
             onClick={() => {
+              setData(userInfo);
               toggleModal();
             }}
           >
@@ -73,9 +76,7 @@ const UserProfile = (props) => {
           </Button>
         </div>
       </div>
-      {modal ? (
-        <EditModal userInfo={userInfo} toggleModal={toggleModal} />
-      ) : null}
+      {modal ? <EditModal data={data} toggleModal={toggleModal} /> : null}
     </div>
   );
 };

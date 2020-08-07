@@ -1,21 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { fetchProductById } from '../../services/ProductService';
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { fetchProductById } from "../../services/ProductService";
+import * as actions from "../../store/actions/index";
+
+import Button from "../UI/Button/Button";
 
 import "./Product.scss";
 
-const Product = props => {
+const Product = (props) => {
   let secondaryImgDivs;
   const [product, setProduct] = useState({});
   const [activeImg, setActiveImg] = useState(null);
   const [secondaryImgs, setSecondaryImgs] = useState();
 
   useEffect(() => {
-    console.log('ComponentDidMount');
+    console.log("ComponentDidMount");
     let itemId = props.match.params.id;
-    fetchProductById(itemId).then(resp => {
+    fetchProductById(itemId).then((resp) => {
       setProduct(resp.data.data);
       setActiveImg(resp.data.data.main_img);
-      setSecondaryImgs([resp.data.data.main_img, ...resp.data.data.product_imgs]);
+      setSecondaryImgs([
+        resp.data.data.main_img,
+        ...resp.data.data.product_imgs,
+      ]);
     });
   }, [props.match.params.id]);
 
@@ -25,16 +32,20 @@ const Product = props => {
     secondaryImgDivs = secondaryImgs.map((item) => {
       return (
         <div
-          className={"product-secondary-img-container " + (item === activeImg ? "selected-img" : '')}
-          style={{ backgroundImage: `url(http://localhost:5000/uploads/${item})` }}
+          className={
+            "product-secondary-img-container " +
+            (item === activeImg ? "selected-img" : "")
+          }
+          style={{
+            backgroundImage: `url(http://localhost:5000/uploads/${item})`,
+          }}
           key={item}
           id={item}
           onClick={() => productImgHandler(item)}
-        >
-        </div>
+        ></div>
       );
     });
-  };
+  }
 
   const productImgHandler = (img) => {
     setActiveImg(img);
@@ -43,7 +54,12 @@ const Product = props => {
   return (
     <div className="product-container">
       <div className="product-main-img-container">
-        <div className="main-img-item" style={{ backgroundImage: `url(http://localhost:5000/uploads/${activeImg})` }}>
+        <div
+          className="main-img-item"
+          style={{
+            backgroundImage: `url(http://localhost:5000/uploads/${activeImg})`,
+          }}
+        >
           <p>{product.price}€</p>
         </div>
       </div>
@@ -53,13 +69,21 @@ const Product = props => {
         <div className="product-secondary-imgs-container">
           {secondaryImgDivs}
         </div>
+        <div className="add-to-cart-btn">
+          <Button onClick={() => props.addProduct(product)}>
+            Add to your cart
+          </Button>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Product;
+const mapDispatchToProps = (dispatch) => ({
+  addProduct: (product) => dispatch(actions.addItemToCart(product)),
+});
 
+export default connect(null, mapDispatchToProps)(Product);
 
 // <div
 // className="product-secondary-img-container"
@@ -70,10 +94,6 @@ export default Product;
 // onClick={() => productImgHandler(product.main_img)}
 // >
 // </div>
-
-
-
-
 
 // <div className="product-secondary-img-container">
 // <img src="https://source.unsplash.com/random/800x600" alt="disIsAltDesc" />
