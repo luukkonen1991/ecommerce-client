@@ -14,10 +14,12 @@
 	.category-content {
 		background-color: beige;
 		height: 30vh;
+		display: flex;
 	}
 }
 
 .category-item {
 	width: 200px;
+	height: 100%;
 	background-color: red;
 }
