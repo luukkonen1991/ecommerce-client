@@ -3,5 +3,7 @@ export const AUTH_SUCCESS = "AUTH_SUCCESS";
 export const AUTH_FAIL = "AUTH_FAIL";
 export const AUTH_LOGOUT = "AUTH_LOGOUT";
 export const FETCH_USER_INFO = "FETCH_USER";
+export const UPDATE_USER_INFO = "UPDATE_USER_INFO";
 export const TOGGLE_CART_HIDDEN = "TOGGLE_CART_HIDDEN";
 export const TOGGLE_USER_HIDDEN = "TOGGLE_USER_HIDDEN";
+export const ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART";
