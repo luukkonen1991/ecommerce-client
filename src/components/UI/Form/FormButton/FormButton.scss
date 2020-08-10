@@ -23,3 +23,20 @@
   background-color: red;
   font-size: 80%;
 }
+
+.edit-success {
+  width: 70%;
+  margin: 0;
+  transition: all 0.25s ease;
+
+  border-radius: 0.4rem;
+  // background-color: #00b252;
+  // max-width: 20rem;
+  // text-align: center;
+  &:hover {
+    background-color: #6f6f6f;
+    color: white;
+    // color: white;
+    // border: 0.1rem solid black;
+  }
+}

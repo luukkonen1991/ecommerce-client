@@ -16,3 +16,21 @@ export const fetchUserInfo = () => {
     });
   };
 };
+
+export const updateUserInfo = (data) => {
+  return (dispatch) => {
+    const updatedData = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+    };
+    console.log(updatedData);
+    axios.put("/api/v1/auth/me", updatedData).then((response) => {
+      console.log(response);
+      dispatch({
+        type: actionTypes.UPDATE_USER_INFO,
+        payload: response,
+      });
+    });
+  };
+};

@@ -10,7 +10,7 @@ const INITIAL_STATE = {
   role: "",
 };
 
-const fetchUserInfo = (state, payload) => {
+const returnUserInfo = (state, payload) => {
   return updateObject(state, {
     userId: payload.data.data.id,
     firstName: payload.data.data.firstName,
@@ -28,7 +28,9 @@ const reducer = (state = INITIAL_STATE, action) => {
         hidden: !state.hidden,
       };
     case actionTypes.FETCH_USER_INFO:
-      return fetchUserInfo(state, action.payload);
+      return returnUserInfo(state, action.payload);
+    case actionTypes.UPDATE_USER_INFO:
+      return returnUserInfo(state, action.payload);
     default:
       return state;
   }
