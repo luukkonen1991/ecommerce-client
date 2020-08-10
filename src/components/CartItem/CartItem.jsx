@@ -19,6 +19,9 @@ const CartItem = ({ item }) => {
         <span className="price">
           {item.quantity} X {item.price}€
         </span>
+        <span className="total">
+          Total price: {item.quantity * item.price}€
+        </span>
       </div>
     </div>
   );
