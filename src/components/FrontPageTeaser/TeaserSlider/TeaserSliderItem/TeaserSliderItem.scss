@@ -6,9 +6,13 @@
 	justify-content: center;
 	overflow: hidden;
 	display: flex;
-
 	&:hover {
 		cursor: pointer;
+	}
+
+	a,
+	span {
+		text-decoration: none;
 	}
 
 	.background-image {

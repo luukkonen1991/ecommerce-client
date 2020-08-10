@@ -1,0 +1,26 @@
+#discount-img {
+	// display: inline-block;
+	height: 70px;
+	width: 70px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	// background: transparent;
+	background-color: transparent;
+	// width: 50%;
+	// height: auto;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	transform: rotate(35deg);
+}
+
+#discount-percentage {
+	color: white;
+	text-align: center;
+	line-height: 70px;
+	font-weight: 700;
+	font-size: 1.4em;
+}

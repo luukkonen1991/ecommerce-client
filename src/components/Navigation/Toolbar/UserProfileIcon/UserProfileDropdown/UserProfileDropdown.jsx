@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Account from "../../../../../containers/Account/Account";
+// import Account from "../../../../../containers/Account/Account";
 import SignOut from "./SignOut/SignOut";
 
 import "./UserProfileDropdown.scss";

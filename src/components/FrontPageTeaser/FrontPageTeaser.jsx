@@ -6,10 +6,10 @@ import TeaserSlider from "./TeaserSlider/TeaserSlider";
 
 import "./FrontPageTeaser.scss";
 
-const FrontPageTeaser = () => (
+const FrontPageTeaser = props => (
   <div className="teaser-container">
     <LeftContent />
-    <TeaserSlider />
+    <TeaserSlider targetGroups={props.targetGroups} />
   </div>
 );
 

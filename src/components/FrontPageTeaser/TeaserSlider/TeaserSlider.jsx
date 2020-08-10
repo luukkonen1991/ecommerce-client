@@ -1,30 +1,31 @@
 import React, { useState } from 'react';
 
-import "./TeaserSlider.scss";
+// import Spinner from '../../UI/Spinner/Spinner'
 import TeaserSliderItem from './TeaserSliderItem/TeaserSliderItem';
+import "./TeaserSlider.scss";
 
-const TeaserSlider = () => {
+const TeaserSlider = props => {
   const [count, setCount] = useState(0);
   console.log(count);
 
 
   const incrementHandler = () => {
     setCount(prevCount => prevCount + 1);
-    if (count >= 3) {
+    if (count >= (props.targetGroups.length - 1)) {
       setCount(0);
     }
   };
   const decrementHandler = () => {
     setCount(prevCount => prevCount - 1);
     if (count <= 0) {
-      setCount(3);
+      setCount((props.targetGroups.length - 1));
     }
   };
 
   return (
     <div className="teaser-slider">
       <div className="slide">
-        <TeaserSliderItem count={count} />
+        <TeaserSliderItem count={count} targetGroupItem={props.targetGroups[count]} />
       </div>
       <button id="goLeft" className="moveleft" onClick={decrementHandler}>
         LEFT
