@@ -16,6 +16,7 @@ const Product = (props) => {
 
   useEffect(() => {
     console.log("ComponentDidMount");
+    console.log(props.match);
     let itemId = props.match.params.id;
     fetchProductById(itemId).then((resp) => {
       setProduct(resp.data.data);

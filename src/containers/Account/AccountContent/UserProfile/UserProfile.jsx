@@ -13,14 +13,7 @@ const UserProfile = (props) => {
   console.log('[INITIAL PROPS UserProfile]', props);
   const [modal, setModal] = useState(false);
   const [data, setData] = useState();
-  const [userInfo, setUserInfo] = useState([
-    { title: "Edit your profile information." },
-    {
-      firstName: props.firstName,
-      lastName: props.lastName,
-      email: props.email,
-    }
-  ]);
+  const [userInfo, setUserInfo] = useState([]);
   // console.log(data);
 
   useEffect(() => {

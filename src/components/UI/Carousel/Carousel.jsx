@@ -11,6 +11,7 @@ import './Carousel.scss';
 const Carousel = props => {
   const [visibleSlides, setVisibleSlides] = useState(4);
   const [superPromoItems, setSuperPromoItems] = useState([]);
+  const [productItems, setProductItems] = useState([]);
   let slides;
 
   useEffect(() => {
@@ -22,6 +23,28 @@ const Carousel = props => {
     setSuperPromoItems(props.superPromoItems);
   }, [props.superPromoItems]);
 
+  useEffect(() => {
+    setProductItems(props.products);
+  }, [props.products]);
+
+  if (props.products) {
+    slides = productItems.map((item, index) => {
+      return (
+        <Link
+          key={item.id}
+          className="slider-item-link"
+          path={`products/${item.id}`}
+        >
+          <Slide index={index} className="Slide">
+            <div style={{ backgroundImage: `url(http://localhost:5000/uploads/${item.main_img})` }}>
+              <p className="original-price">{item.price}€</p>
+              <p className="discount-price">1.99€</p>
+            </div>
+            <h3>T-shirt / Regular Fit</h3>
+          </Slide>
+        </Link>);
+    });
+  }
 
   if (props.superPromoItems) {
     slides = superPromoItems.map((item, index) => {
