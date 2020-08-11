@@ -16,6 +16,7 @@ const EditModal = (props) => {
   const keys = Object.keys(props.data[1]);
 
   useEffect(() => {
+    console.log('[EditModal Ran]', props.data);
     setData(props.data[1]);
     setTitle(props.data[0].title);
   }, [props.data]);

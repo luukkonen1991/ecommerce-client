@@ -1,5 +1,5 @@
 // import React, { useEffect, useState } from "react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 import Button from "../../../../components/UI/Button/Button";
@@ -10,7 +10,7 @@ import { faUser, faAddressBook } from "@fortawesome/free-solid-svg-icons";
 import "./UserProfile.scss";
 
 const UserProfile = (props) => {
-  console.log(props);
+  console.log('[INITIAL PROPS UserProfile]', props);
   const [modal, setModal] = useState(false);
   const [data, setData] = useState();
   const [userInfo, setUserInfo] = useState([
@@ -19,11 +19,25 @@ const UserProfile = (props) => {
       firstName: props.firstName,
       lastName: props.lastName,
       email: props.email,
-    },
+    }
   ]);
-  console.log(data);
+  // console.log(data);
 
-  const toggleModal = () => {
+  useEffect(() => {
+    console.log('[UseEffect ran in UserProfile]');
+    setUserInfo([
+      { title: "Edit your profile information." },
+      {
+        firstName: props.firstName,
+        lastName: props.lastName,
+        email: props.email,
+      }
+    ]);
+  }, [props]);
+
+  const toggleModal = (data) => {
+    setData(data);
+    console.log('[Before modal open]', userInfo);
     setModal(!modal);
   };
 
@@ -50,8 +64,9 @@ const UserProfile = (props) => {
           <Button
             className="edit-btn"
             onClick={() => {
-              setData(userInfo);
-              toggleModal();
+              // setData(userInfo);
+              console.log('[Log inside onClick]', userInfo);
+              toggleModal(userInfo);
             }}
           >
             Edit
@@ -77,7 +92,7 @@ const UserProfile = (props) => {
           </Button>
         </div>
       </div>
-      {modal ? <EditModal data={data} toggleModal={toggleModal} /> : null}
+      {modal ? <EditModal data={userInfo} toggleModal={toggleModal} /> : null}
     </div>
   );
 };

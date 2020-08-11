@@ -18,9 +18,9 @@ const Account = (props) => {
             </Link>
           </li>
           <li className="side-nav__item">
-            <a href="" className="side-nav__link">
+            {/*            <a href="" className="side-nav__link">
               <span>Orders</span>
-            </a>
+  </a>*/}
           </li>
         </ul>
       </nav>
@@ -31,10 +31,10 @@ const Account = (props) => {
           <p>Here you can view and update your profile information.</p>
         </div>
       ) : (
-        <div className="details-view">
-          <AccountContent path={path} />
-        </div>
-      )}
+          <div className="details-view">
+            <AccountContent path={path} />
+          </div>
+        )}
     </div>
   );
 };
