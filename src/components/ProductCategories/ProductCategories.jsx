@@ -30,7 +30,7 @@ const ProductCategories = props => {
     return (
       <div className="category-container">
         <div className="category-img">
-          {category}
+          <h1>{category}</h1>
         </div>
         <Carousel products={products} />
       </div>

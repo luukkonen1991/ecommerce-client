@@ -40,7 +40,7 @@ const Carousel = props => {
               <p className="original-price">{item.price}€</p>
               <p className="discount-price">1.99€</p>
             </div>
-            <h3>T-shirt / Regular Fit</h3>
+            {/*<h3>T-shirt / Regular Fit</h3>*/}
           </Slide>
         </Link>);
     });
