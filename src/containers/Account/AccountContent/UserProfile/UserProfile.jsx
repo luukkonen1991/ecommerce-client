@@ -1,6 +1,6 @@
 // import React, { useEffect, useState } from "react";
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useState } from "react";
+// import { connect } from "react-redux";
 
 import Button from "../../../../components/UI/Button/Button";
 import EditModal from "../../../../components/UI/Modal/EditModal/EditModal";
@@ -10,27 +10,13 @@ import { faUser, faAddressBook } from "@fortawesome/free-solid-svg-icons";
 import "./UserProfile.scss";
 
 const UserProfile = (props) => {
-  console.log('[INITIAL PROPS UserProfile]', props);
   const [modal, setModal] = useState(false);
-  const [data, setData] = useState();
-  const [userInfo, setUserInfo] = useState([]);
-  // console.log(data);
+  const [modalData, setModalData] = useState({});
+  const [modalTitle, setModalTitle] = useState({});
 
-  useEffect(() => {
-    console.log('[UseEffect ran in UserProfile]');
-    setUserInfo([
-      { title: "Edit your profile information." },
-      {
-        firstName: props.firstName,
-        lastName: props.lastName,
-        email: props.email,
-      }
-    ]);
-  }, [props]);
-
-  const toggleModal = (data) => {
-    setData(data);
-    console.log('[Before modal open]', userInfo);
+  const toggleModal = (userData, title) => {
+    setModalData(userData);
+    setModalTitle(title);
     setModal(!modal);
   };
 
@@ -47,19 +33,20 @@ const UserProfile = (props) => {
           <div className="user-detail-item">
             <span>Name</span>
             <p className="detail-value">
-              {props.firstName} {props.lastName}
+              {props.user.firstName} {props.user.lastName}
             </p>
           </div>
           <div className="user-detail-item">
             <span>Email</span>
-            <p className="detail-value">{props.email}</p>
+            <p className="detail-value">{props.user.email}</p>
           </div>
           <Button
             className="edit-btn"
             onClick={() => {
-              // setData(userInfo);
-              console.log('[Log inside onClick]', userInfo);
-              toggleModal(userInfo);
+              toggleModal(
+                { firstName: props.user.firstName, lastName: props.user.lastName, email: props.user.email },
+                { title: "Edit your profile information." }
+              );
             }}
           >
             Edit
@@ -85,17 +72,11 @@ const UserProfile = (props) => {
           </Button>
         </div>
       </div>
-      {modal ? <EditModal data={userInfo} toggleModal={toggleModal} /> : null}
+      {modal ? <EditModal modalTitle={modalTitle} modalData={modalData} toggleModal={toggleModal} onUserUpdate={props.onUserUpdate} /> : null}
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    firstName: state.user.firstName,
-    lastName: state.user.lastName,
-    email: state.user.email,
-  };
-};
 
-export default connect(mapStateToProps)(UserProfile);
+export default UserProfile;
+

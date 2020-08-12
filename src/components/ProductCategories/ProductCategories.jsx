@@ -32,9 +32,7 @@ const ProductCategories = props => {
         <div className="category-img">
           {category}
         </div>
-
         <Carousel products={products} />
-
       </div>
     );
   });

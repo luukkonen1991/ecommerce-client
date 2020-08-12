@@ -28,7 +28,7 @@ const Product = (props) => {
         ]);
       }
     });
-  }, [props.match.params.id]);
+  }, [props.match.params.id, props.match]);
 
   console.log(secondaryImgs);
 
