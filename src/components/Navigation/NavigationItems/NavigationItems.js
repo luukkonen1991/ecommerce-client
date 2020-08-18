@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import SignOut from "../Toolbar/UserProfileIcon/UserProfileDropdown/SignOut/SignOut";
+// import SignOut from "../Toolbar/UserProfileIcon/UserProfileDropdown/SignOut/SignOut";
 import CartIcon from "../Toolbar/CartIcon/CartIcon";
 import CartDropdown from "../Toolbar/CartIcon/CartDropdown/CartDropdown";
 import UserProfileIcon from "../Toolbar/UserProfileIcon/UserProfileIcon";
@@ -28,11 +28,11 @@ const NavigationItems = ({ cartHidden, userHidden, authenticated }) => {
           </Link>
         </li>
       ) : (
-        <Fragment>
-          <UserProfileIcon />
-          <CartIcon />
-        </Fragment>
-      )}
+          <Fragment>
+            <UserProfileIcon />
+            <CartIcon />
+          </Fragment>
+        )}
       {userHidden ? null : <UserProfileDropdown />}
       {cartHidden ? null : <CartDropdown />}
     </ul>

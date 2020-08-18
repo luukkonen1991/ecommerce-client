@@ -4,9 +4,9 @@ import UserProfile from "./UserProfile/UserProfile";
 
 const AccountContent = (props) => {
   const path = props.path;
-  console.log(path);
+  // console.log(path, '[AccountContent]');
   if (path === "/account/details") {
-    return <UserProfile />;
+    return <UserProfile user={props.user} onUserUpdate={props.onUserUpdate} />;
   }
 };
 

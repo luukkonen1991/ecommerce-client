@@ -1,6 +1,6 @@
 // import React, { useEffect, useState } from "react";
 import React, { useState } from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
 import Button from "../../../../components/UI/Button/Button";
 import EditModal from "../../../../components/UI/Modal/EditModal/EditModal";
@@ -10,20 +10,13 @@ import { faUser, faAddressBook } from "@fortawesome/free-solid-svg-icons";
 import "./UserProfile.scss";
 
 const UserProfile = (props) => {
-  console.log(props);
   const [modal, setModal] = useState(false);
-  const [data, setData] = useState();
-  const [userInfo, setUserInfo] = useState([
-    { title: "Edit your profile information." },
-    {
-      firstName: props.firstName,
-      lastName: props.lastName,
-      email: props.email,
-    },
-  ]);
-  console.log(data);
+  const [modalData, setModalData] = useState({});
+  const [modalTitle, setModalTitle] = useState({});
 
-  const toggleModal = () => {
+  const toggleModal = (userData, title) => {
+    setModalData(userData);
+    setModalTitle(title);
     setModal(!modal);
   };
 
@@ -40,18 +33,20 @@ const UserProfile = (props) => {
           <div className="user-detail-item">
             <span>Name</span>
             <p className="detail-value">
-              {props.firstName} {props.lastName}
+              {props.user.firstName} {props.user.lastName}
             </p>
           </div>
           <div className="user-detail-item">
             <span>Email</span>
-            <p className="detail-value">{props.email}</p>
+            <p className="detail-value">{props.user.email}</p>
           </div>
           <Button
             className="edit-btn"
             onClick={() => {
-              setData(userInfo);
-              toggleModal();
+              toggleModal(
+                { firstName: props.user.firstName, lastName: props.user.lastName, email: props.user.email },
+                { title: "Edit your profile information." }
+              );
             }}
           >
             Edit
@@ -77,17 +72,11 @@ const UserProfile = (props) => {
           </Button>
         </div>
       </div>
-      {modal ? <EditModal data={data} toggleModal={toggleModal} /> : null}
+      {modal ? <EditModal modalTitle={modalTitle} modalData={modalData} toggleModal={toggleModal} onUserUpdate={props.onUserUpdate} /> : null}
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    firstName: state.user.firstName,
-    lastName: state.user.lastName,
-    email: state.user.email,
-  };
-};
 
-export default connect(mapStateToProps)(UserProfile);
+export default UserProfile;
+

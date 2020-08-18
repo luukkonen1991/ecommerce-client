@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from "react";
-
-import { connect } from "react-redux";
-import * as actions from "../../../../store/actions/index";
+import React, { useState } from "react";
 
 import Spinner from "../../../UI/Spinner/Spinner";
 import FormInput from "../../Form/FormInput/FormInput";
@@ -10,23 +7,18 @@ import FormButton from "../../Form/FormButton/FormButton";
 import "./EditModal.scss";
 
 const EditModal = (props) => {
-  const [data, setData] = useState();
-  const [title, setTitle] = useState();
-
-  const keys = Object.keys(props.data[1]);
-
-  useEffect(() => {
-    setData(props.data[1]);
-    setTitle(props.data[0].title);
-  }, [props.data]);
+  const [data, setData] = useState(props.modalData);
+  const keys = Object.keys(data);
 
   const modifyKey = (key) => {
+    console.log('I ran', key);
     const firstLetter = key.charAt(0).toUpperCase();
     const rest = key
       .split(/(?=[A-Z])/)
       .join(" ")
       .toLowerCase()
       .slice(1);
+    console.log(firstLetter, rest);
     return firstLetter + rest;
   };
 
@@ -48,16 +40,17 @@ const EditModal = (props) => {
         >
           X
         </div>
-        <div className="editmodal-header">{title ? title : null}</div>
+        <div className="editmodal-header">{props.modalTitle.title ? props.modalTitle.title : null}</div>
         <div className="editmodal-body">
           <form className="editmodal-form" onSubmit={submitHandler}>
             {keys.map((key) => {
+              let name = modifyKey(key);
               return (
                 <div className={`info-item ${key}`} key={key}>
-                  <label className="input-label">{key}</label>
+                  <label className="input-label">{name}</label>
                   <FormInput
                     type="text"
-                    name={modifyKey(key)}
+                    name={key}
                     value={data[key]}
                     onChange={(e) =>
                       setData({
@@ -79,10 +72,11 @@ const EditModal = (props) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onUserUpdate: (data) => dispatch(actions.updateUserInfo(data)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onUserUpdate: (data) => dispatch(actions.updateUserInfo(data)),
+//   };
+// };
 
-export default connect(null, mapDispatchToProps)(EditModal);
+// export default connect(null, mapDispatchToProps)(EditModal);
+export default EditModal;

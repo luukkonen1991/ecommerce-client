@@ -8,7 +8,7 @@ import Button from "../UI/Button/Button";
 import "./Product.scss";
 
 const Product = (props) => {
-  let secondaryImgDivs;
+  let secondaryImgDivs = null;
   const [product, setProduct] = useState({});
   const [activeImg, setActiveImg] = useState(null);
   const [secondaryImgs, setSecondaryImgs] = useState();
@@ -16,16 +16,19 @@ const Product = (props) => {
 
   useEffect(() => {
     console.log("ComponentDidMount");
+    console.log(props.match);
     let itemId = props.match.params.id;
     fetchProductById(itemId).then((resp) => {
       setProduct(resp.data.data);
       setActiveImg(resp.data.data.main_img);
-      setSecondaryImgs([
-        resp.data.data.main_img,
-        ...resp.data.data.product_imgs,
-      ]);
+      if (resp.data.data.product_imgs) {
+        setSecondaryImgs([
+          resp.data.data.main_img,
+          ...resp.data.data.product_imgs,
+        ]);
+      }
     });
-  }, [props.match.params.id]);
+  }, [props.match.params.id, props.match]);
 
   console.log(secondaryImgs);
 
