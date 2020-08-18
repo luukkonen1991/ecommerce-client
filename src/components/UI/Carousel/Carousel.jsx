@@ -25,15 +25,17 @@ const Carousel = props => {
 
   useEffect(() => {
     setProductItems(props.products);
+    console.log(props.products, '[CAROUSEL PROPS PRODUCTS]');
   }, [props.products]);
 
   if (props.products) {
     slides = productItems.map((item, index) => {
+      console.log(item, '[ITEM IN CAROUSELL!!!!]');
       return (
         <Link
           key={item.id}
           className="slider-item-link"
-          path={`products/${item.id}`}
+          to={`products/${item.id}`}
         >
           <Slide index={index} className="Slide">
             <div style={{ backgroundImage: `url(http://localhost:5000/uploads/${item.main_img})` }}>

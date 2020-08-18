@@ -12,11 +12,9 @@ const Product = (props) => {
   const [product, setProduct] = useState({});
   const [activeImg, setActiveImg] = useState(null);
   const [secondaryImgs, setSecondaryImgs] = useState();
-  console.log(activeImg);
+  // console.log(activeImg);
 
   useEffect(() => {
-    console.log("ComponentDidMount");
-    console.log(props.match);
     let itemId = props.match.params.id;
     fetchProductById(itemId).then((resp) => {
       setProduct(resp.data.data);
@@ -28,7 +26,7 @@ const Product = (props) => {
         ]);
       }
     });
-  }, [props.match.params.id, props.match]);
+  }, [props.match.params.id]);
 
   console.log(secondaryImgs);
 
@@ -88,23 +86,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(null, mapDispatchToProps)(Product);
-
-// <div
-// className="product-secondary-img-container"
-// style={{
-//   backgroundImage: `url(http://localhost:5000/uploads/${product.main_img})`
-// }}
-// id={product.main_img}
-// onClick={() => productImgHandler(product.main_img)}
-// >
-// </div>
-
-// <div className="product-secondary-img-container">
-// <img src="https://source.unsplash.com/random/800x600" alt="disIsAltDesc" />
-// </div>
-// <div className="product-secondary-img-container">
-// <img src="https://source.unsplash.com/random/800x600" alt="disIsAltDesc" />
-// </div>
-// <div className="product-secondary-img-container">
-// <img src="https://source.unsplash.com/random/800x600" alt="disIsAltDesc" />
-// </div>
