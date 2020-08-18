@@ -1,0 +1,23 @@
+.cart-page-item {
+  display: flex;
+  flex-direction: row;
+  // padding: 1.5rem;
+  margin: 1.5rem;
+  justify-content: space-between;
+
+  .cart-page-item-image-container {
+    border: 1px solid red;
+    margin: 0 1rem;
+
+    .cart-page-item-image {
+      height: 10rem;
+      width: 10rem;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+  .cart-page-item-info-container {
+    border: 1px solid red;
+    margin: 0 1rem;
+  }
+}
