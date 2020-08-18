@@ -24,6 +24,7 @@ let routes = (
     <Route path="/shop/:targetGroup" component={ProductGategories} />
     <Route path="/shop" component={ShopPage} />
     <Route path="/products/:id" component={Product} />
+    <Route path="shop/products/:id" component={Product} />
     <Route path="/account" component={Account} />
     <Route path="/account/details" component={UserProfile} />
 

@@ -6,14 +6,11 @@ import { fetchAllProducts } from '../../services/ProductService';
 import "./ProductCategories.scss";
 
 const ProductCategories = props => {
-  // const [targetId, setTargetId] = useState();
+  let categoryProductContent;
   const [targetGroupProducts, setTargetGroupProducts] = useState();
   const [targetCategories, setTargetCategories] = useState([]);
-  // let categoryContainerContent;
-  let categoryProductContent;
 
   useEffect(() => {
-    console.log('[ProductCategoriesComponent useEffect]');
     fetchAllProducts({ params: { targetGroupId: props.location.state.targetId, include: "category" } })
       .then(resp => {
         setTargetGroupProducts(resp.data.data);
