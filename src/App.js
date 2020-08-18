@@ -14,6 +14,7 @@ import SignIn from "./containers/Auth/SignIn/SignIn";
 import Register from "./containers/Auth/Register/Register";
 import Product from "./components/Product/Product";
 import ProductGategories from "./components/ProductCategories/ProductCategories";
+import CartPage from "./containers/CartPage/CartPage";
 
 let routes = (
   <Switch>
@@ -26,6 +27,7 @@ let routes = (
     <Route path="/products/:id" component={Product} />
     <Route path="/account" component={Account} />
     <Route path="/account/details" component={UserProfile} />
+    <Route path="/cart" component={CartPage} />
 
     <Redirect to="/" />
   </Switch>
