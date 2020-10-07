@@ -12,7 +12,7 @@ const Account = (props) => {
   const [user, setUser] = useState(props.user);
 
   useEffect(() => {
-    console.log('[UseEffect ran in AccountComponent]', props.user);
+    console.log("[UseEffect ran in AccountComponent]", props.user);
     setUser(props.user);
   }, [props.user]);
 
@@ -27,11 +27,7 @@ const Account = (props) => {
               <span>Profile</span>
             </Link>
           </li>
-          <li className="side-nav__item">
-            {/*            <a href="" className="side-nav__link">
-              <span>Orders</span>
-  </a>*/}
-          </li>
+          <li className="side-nav__item"></li>
         </ul>
       </nav>
 
@@ -42,16 +38,20 @@ const Account = (props) => {
           <p>Here you can view and update your profile information.</p>
         </div>
       ) : (
-          <div className="details-view">
-            <AccountContent path={path} user={user} onUserUpdate={props.onUserUpdate} />
-          </div>
-        )}
+        <div className="details-view">
+          <AccountContent
+            path={path}
+            user={user}
+            onUserUpdate={props.onUserUpdate}
+          />
+        </div>
+      )}
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
 });
 
 const mapDispatchToProps = (dispatch) => {

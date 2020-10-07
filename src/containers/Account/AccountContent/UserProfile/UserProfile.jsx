@@ -10,6 +10,7 @@ import { faUser, faAddressBook } from "@fortawesome/free-solid-svg-icons";
 import "./UserProfile.scss";
 
 const UserProfile = (props) => {
+  console.log(props);
   const [modal, setModal] = useState(false);
   const [modalData, setModalData] = useState({});
   const [modalTitle, setModalTitle] = useState({});
@@ -44,7 +45,11 @@ const UserProfile = (props) => {
             className="edit-btn"
             onClick={() => {
               toggleModal(
-                { firstName: props.user.firstName, lastName: props.user.lastName, email: props.user.email },
+                {
+                  firstName: props.user.firstName,
+                  lastName: props.user.lastName,
+                  email: props.user.email,
+                },
                 { title: "Edit your profile information." }
               );
             }}
@@ -62,21 +67,23 @@ const UserProfile = (props) => {
             <span>Phone number</span>
             <p className="detail-value"></p>
           </div>
-          <Button
-            className="edit-btn"
-            onClick={() => {
-              toggleModal();
-            }}
-          >
+          <Button className="edit-btn" onClick={() => setModal(!modal)}>
             Edit
           </Button>
         </div>
       </div>
-      {modal ? <EditModal modalTitle={modalTitle} modalData={modalData} toggleModal={toggleModal} onUserUpdate={props.onUserUpdate} /> : null}
+      {modal ? (
+        <EditModal
+          modalTitle={modalTitle}
+          modalData={modalData}
+          toggleModal={toggleModal}
+          onUserUpdate={props.onUserUpdate}
+          setModal={setModal}
+          modal={modal}
+        />
+      ) : null}
     </div>
   );
 };
 
-
 export default UserProfile;
-

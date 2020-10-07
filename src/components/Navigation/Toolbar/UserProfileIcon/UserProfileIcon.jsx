@@ -1,17 +1,32 @@
-import React, { useEffect } from "react";
-
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../../../store/actions/user";
+
+import UserProfileDropdown from "./UserProfileDropdown/UserProfileDropdown";
+
 import "./UserProfileIcon.scss";
 
-const UserProfileIcon = (props) => {
+const UserProfileIcon = ({ getUser, userName }) => {
+  const [isShown, setIsShown] = useState(false);
+  const history = useHistory();
+
   useEffect(() => {
-    props.getUser();
+    getUser();
   });
 
   return (
-    <div className="profile-icon" onClick={props.toggleUserHidden}>
-      <div className="username">{props.userName}</div>
+    <div
+      onMouseEnter={() => setIsShown(true)}
+      onMouseLeave={() => setIsShown(false)}
+    >
+      <div className="profile-icon">
+        <div className="username" onClick={() => history.push("/account")}>
+          {userName}
+        </div>
+      </div>
+
+      {isShown ? <UserProfileDropdown /> : null}
     </div>
   );
 };
@@ -23,7 +38,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleUserHidden: () => dispatch(actions.toggleUserHidden()),
+  // toggleUserHidden: () => dispatch(actions.toggleUserHidden()),
   getUser: () => dispatch(actions.fetchUserInfo()),
 });
 
