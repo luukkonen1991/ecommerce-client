@@ -6,11 +6,16 @@
   left: 50%;
   transform: translate(-50%, 20%);
 
-  .title {
+  .title-register {
     margin: 1rem 0;
+    font-size: 2rem;
   }
 
-  .buttons {
+  .register-sub-title {
+    font-size: 1.4rem;
+  }
+
+  .buttons-register {
     display: flex;
     justify-content: space-between;
   }

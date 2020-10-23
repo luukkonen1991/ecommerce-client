@@ -10,7 +10,8 @@ import UserProfileDropdown from "../Toolbar/UserProfileIcon/UserProfileDropdown/
 
 import classes from "./NavigationItems.module.scss";
 
-const NavigationItems = ({ cartHidden, userHidden, authenticated }) => {
+const NavigationItems = ({ authenticated }) => {
+  console.log(authenticated);
   return (
     <ul className={classes.NavigationItems}>
       <li className="nav-item">
@@ -28,13 +29,13 @@ const NavigationItems = ({ cartHidden, userHidden, authenticated }) => {
           </Link>
         </li>
       ) : (
-          <Fragment>
-            <UserProfileIcon />
-            <CartIcon />
-          </Fragment>
-        )}
-      {userHidden ? null : <UserProfileDropdown />}
-      {cartHidden ? null : <CartDropdown />}
+        <Fragment>
+          <UserProfileIcon />
+          <CartIcon />
+        </Fragment>
+      )}
+      {/* {userHidden ? null : <UserProfileDropdown />} */}
+      {/* {cartHidden ? null : <CartDropdown />} */}
     </ul>
   );
 };
@@ -42,8 +43,8 @@ const NavigationItems = ({ cartHidden, userHidden, authenticated }) => {
 const mapStateToProps = (state) => {
   return {
     authenticated: state.auth.user,
-    cartHidden: state.cart.hidden,
-    userHidden: state.user.hidden,
+    // cartHidden: state.cart.hidden,
+    // userHidden: state.user.hidden,
   };
 };
 

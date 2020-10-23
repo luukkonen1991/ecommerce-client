@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 // import { persistStore, persistReducer } from "redux-persist";
 import thunk from "redux-thunk";
-// import logger from "redux-logger";
+import logger from "redux-logger";
 
 import "./index.css";
 import App from "./App";
@@ -25,7 +25,7 @@ const rootReducer = combineReducers({
   user: userReducer,
 });
 
-const middlewares = [thunk];
+const middlewares = [thunk, logger];
 
 const store = createStore(
   rootReducer,

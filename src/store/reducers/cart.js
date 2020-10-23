@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   cartItems: [],
 };
 
+// Function to handle adding items to cart
 const addCartItem = (cartItems, cartItemToAdd) => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === cartItemToAdd.id

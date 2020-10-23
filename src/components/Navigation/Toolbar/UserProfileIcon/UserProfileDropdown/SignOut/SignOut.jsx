@@ -1,11 +1,20 @@
 import React from "react";
 import "./SignOut.scss";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import * as actions from "../../../../../../store/actions/index";
 
-const SignOut = (props) => {
+const SignOut = ({ onLogout }) => {
+  const history = useHistory();
+
+  const handleLogout = () => {
+    onLogout(() => {
+      history.push("/");
+    });
+  };
+
   return (
-    <div className="sign-out" onClick={props.onLogout}>
+    <div className="sign-out" onClick={handleLogout}>
       SIGN OUT
     </div>
   );
@@ -13,7 +22,7 @@ const SignOut = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onLogout: () => dispatch(actions.authSignout()),
+    onLogout: (callback) => dispatch(actions.authSignout(callback)),
   };
 };
 

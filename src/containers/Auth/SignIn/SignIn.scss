@@ -1,11 +1,20 @@
 .form-container {
-	width: 40%;
-	display: flex;
-	flex-direction: column;
-	position: absolute;
-	left: 50%;
-	transform: translate(-50%, 20%);
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 20%);
 }
-.title {
-	margin: 1rem 0;
+.signin-title {
+  margin: 1rem 0;
+  font-size: 2rem;
+}
+
+.signin-sub-title {
+  font-size: 1.4rem;
+}
+.buttons-signin {
+  display: flex;
+  justify-content: center;
 }
